@@ -30,9 +30,17 @@
 
 > Processing clinical pharmacogenomic findings for personalized accessibility to non-professionals
 
+> Processing clinical pharmacogenomic findings for personalized tangibility to non-professionals
+
+> Processing clinical pharmacogenomic findings for personalized comprehensibility in non-professionals
+
 > Processing clinical pharmacogenomic findings to provide personalized access for non-professionals
 
 > Providing personalized access to clinical pharmacogenomic findings to non-professionals
 
 > Processing clinical pharmacogenomic findings to create personalized access 
+
+> Processing clinical pharmacogenomic findings for personalized access directed at non-professionals
+
+> Processing clinical pharmacogenomic findings to facilitate personalized access for non-professionals
 
