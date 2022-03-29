@@ -1,4 +1,4 @@
-# Processing clinical pharmacogenomic findings to facilitate personalized access for non-professionals
+# Processing natural language in pharmacogenomic guidelines to facilitate access for non-professionals
 
 ## Research Proposal (subject to change)
 
