@@ -26,18 +26,26 @@
 
 ### Background
 
-> > TODO: Ask Tamara about the scope of this part
+> CPIC, whatever is necessary to understand main part, phenotypes, write at the
+> end
 
 ## Main part
 
-> > - Methods (setup, should enable reader to replicate study)
-> > - Results (observations w/o explanations or comments)
-> > - Discussion (interpretation, comment on results, connect to other research,
-> >   state limitations, future work)
+> > 1. Methods (setup, should enable reader to replicate study)
+> > 2. Results (observations w/o explanations or comments)
+> > 3. Discussion (interpretation, comment on results, connect to other
+> >    research, state limitations, future work)
+
+> > 1. Conceptualization
+> > 2. Implementation
+> > 3. Evaluation
 
 ### Annotation server
 
 - recap introduction, this is a component of PharMe service
+- short description of how it works right now
+- max 1-1.5 pages
+- discussion and motivation in introduction
 
 #### Methods
 
@@ -68,6 +76,8 @@
 
 > > (TODO: find name for tool)
 
+> > user testing w/ Aniwaa?
+
 #### Big picture idea ('Methods')
 
 - Infrastructure
@@ -89,9 +99,12 @@
 
 #### Observations
 
+> consider moving to introduction
+
 - Desire for automation is strong from the pharmacists' / curators' side
   ($\to$ consultation with Aniwaa)
 - Guideline Tool project is way out of scope for small bachelor thesis
+  - this thesis focuses on this part
 
 #### Results
 
