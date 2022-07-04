@@ -1,14 +1,12 @@
 # Bachelor thesis structure & content outline
 
-## Abstract
+## 1 | Abstract
 
 > > <140 words, reflect main story, call attention, short & concise\
 > Scope, Problem, Scope, Significance, Solution, Evaluation
 
-## Introduction
+## 2 | Introduction
 
-> > first paragraph important; reader decides if wants to continue reading
->
 > Introduce topic and define the terminology
 
 - Rough PGx topic introduction
@@ -24,97 +22,101 @@
 
 > Last paragraph outlines structure
 
-### Background
+## 1 | Background
 
 > CPIC, whatever is necessary to understand main part, phenotypes, write at the
 > end
 
-## Main part
 
-> > 1. Methods (setup, should enable reader to replicate study)
-> > 2. Results (observations w/o explanations or comments)
+> > 1. Methods (setup, should enable reader to replicate study) \
+> >    (Conceptualization)
+> > 2. Results (observations w/o explanations or comments) \
+> >    (Implementation)
 > > 3. Discussion (interpretation, comment on results, connect to other
-> >    research, state limitations, future work)
+> >    research, state limitations, future work) \
+> >    (Evaluation)
 
-> > 1. Conceptualization
-> > 2. Implementation
-> > 3. Evaluation
-
-### Annotation server
+## 2 | Annotation server
 
 - recap introduction, this is a component of PharMe service
-- short description of how it works right now
-- max 1-1.5 pages
-- discussion and motivation in introduction
-
-#### Methods
-
 - Why do we need it, what does it do for the service?
   - Connection of multiple data sources for different reasons (DrugBank, CPIC,
-    our curated guidelines, TODO: should I mention Google Sheet here?)
+    our curated guidelines from Google Sheet)
+
+### 1 | Technical implementation
+
+- Tech stack
 - Rough architecture
   - Introduce different sub-modules and their roles
   - Flow to build our database
-- Tech stack
 
-#### Observations
+### 1 | Observations & Evaluation
 
 - Curation of guidelines is high effort (e.g. $2 ~\textrm{people} \cdot 2
   ~\textrm{days} / 100 ~\textrm{drug-gene pairs}$)
 - Matching manually curated data with API data from CPIC and Drugbank is
   difficult
   - doesn't always work, errors that can't be fixed automatically do occur
-
-#### Discussion
-
 - There is a need for humans to supervise this process more than simply
   supplying guidelines through a one-way interface (e.g. a Google Sheet)
 - The manual work of curating guidelines has lots of room to be made more
   efficient
+- Desire for automation is strong from the pharmacists' / curators' side
+  ($\to$ consultation with Aniwaa)
 
-### Proposal of Guideline Tool
+## 8 | Annotation Interface
 
-> > (TODO: find name for tool)
-
-> > user testing w/ Aniwaa?
-
-#### Big picture idea ('Methods')
+### 2 | Conceptualization
 
 - Infrastructure
-  - CRUD interface to our backend for curated guidelines
+  - CRUD interface to our backend for curated annotations
   - list of errors that have occurred during data collection
-- Help for curation of of guidelines
+- Help for curation of of annotations
   - interface to (multiple?) external resources $\to$ reduce research time
-  - modular Lego-like building of guidelines $\to$ reduce writing time, support
+  - modular Lego-like building of annotations $\to$ reduce writing time, support
     languages unknown to the curator
     - CRUD for multi-language text-components
-    - visual UI to build guideline texts from components
+    - visual UI to build annotation texts from components
     - components can have placeholders, e.g. `{{drug}}` is automatically
       replaced with the respective drug's name (Drugbank often has drug name
       translations)
-  - NLP & automated guideline suggestions $\to$ reduce writing time even further
+  - NLP & automated annotation suggestions $\to$ reduce writing time even further
     - finding matching text components based on external resources can
       ultimately be automated, mention PGxCorpus paper
     - UI gets `accept` and `edit` buttons, curator is now mostly administrator
 
-#### Observations
+### 5 | Implementation
 
-> consider moving to introduction
+- proposal was priority list for project
+- tech stack
 
-- Desire for automation is strong from the pharmacists' / curators' side
-  ($\to$ consultation with Aniwaa)
-- Guideline Tool project is way out of scope for small bachelor thesis
-  - this thesis focuses on this part
+#### 2 | Usage flow and technical overview
 
-#### Results
+- walk through how curator would use it
+- give architectural overview
 
-- list above is priority list for project
+#### 1 | Data structure
 
-### Guideline Tool implementation
+- models, responsibilities
+  - mongoose discriminators on Annotations
+- connections to server
 
-> > TBD
+#### 1 | Abstraction & extensibility
 
-## Conclusion
+- Brick resolving
+- reusable Annotation components
+- what to abstract more
+
+#### 1 | What's next / missing
+
+- open issues
+- handle missing (deleted) Bricks, missing translations
+- support multiple languages in other parts of PharMe system
+- touch on possibility to include NLP again
+
+### 1 | Testing / Feedback with Aniwaa
+
+## 1 | Conclusion
 
 > > - summary of findings, not of achievements
 > > - make strong statements
@@ -123,4 +125,4 @@
 
 - PGx is on the way to get closer to patients (also mention *All Of Us* project
   in the US)
-- Guideline tool could be used in other patient-oriented PGx projects as well
+- Annotation Interface could be used in other patient-oriented PGx projects as well
