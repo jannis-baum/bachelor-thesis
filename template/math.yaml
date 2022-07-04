@@ -1,0 +1,9 @@
+# THESIS
+# math
+
+mue-config:
+  include:
+    - thesis/_doc
+
+classoption:
+  - fleqn    # align (float) equations left rather than center

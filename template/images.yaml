@@ -1,0 +1,14 @@
+# THESIS
+# image styling
+
+mue-config:
+  include:
+    - thesis/_doc
+
+header-includes:
+  # force images to appear at correct position in text
+  - \usepackage{float}
+  - \makeatletter
+  - \def\fps@figure{H} 
+  - \makeatother
+

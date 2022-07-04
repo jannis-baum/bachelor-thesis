@@ -1,0 +1,12 @@
+# THESIS
+# quotation styling
+
+mue-config:
+  include:
+    - thesis/_doc
+
+header-includes:
+  # indent quote blocks
+  - \usepackage{etoolbox}
+  - \patchcmd{\quote}{\rightmargin}{\leftmargin 2em \rightmargin 0}{}{}
+

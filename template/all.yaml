@@ -1,0 +1,10 @@
+# THESIS
+
+mue-config:
+  include:
+    - thesis/_doc
+    - thesis/code
+    - thesis/images
+    - thesis/math
+    - thesis/quotes
+
