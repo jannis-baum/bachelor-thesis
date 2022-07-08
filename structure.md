@@ -15,10 +15,12 @@
 
 > Indicate focus of paper and research objectives
 
-- Introduce annotation server as backend built in shared effort
+- Introduce Annotation Server as backend built in shared effort
   - source of app data
   - manually curated content
-- Explain need for data administration, my objective for this thesis
+- Explain need for data administration
+- My objective/research aim for this thesis: ease/improve process of curating
+  and administrating data
 
 > Last paragraph outlines structure
 
@@ -26,8 +28,7 @@
 
 > CPIC, whatever is necessary to understand main part, phenotypes, write at the
 > end
-
-
+>
 > > 1. Methods (setup, should enable reader to replicate study) \
 > >    (Conceptualization)
 > > 2. Results (observations w/o explanations or comments) \
@@ -36,7 +37,7 @@
 > >    research, state limitations, future work) \
 > >    (Evaluation)
 
-## 2 | Annotation server
+## 2 | Annotation Server
 
 - recap introduction, this is a component of PharMe service
 - Why do we need it, what does it do for the service?
@@ -107,14 +108,19 @@
 - reusable Annotation components
 - what to abstract more
 
-#### 1 | What's next / missing
+### 1 | Testing with expert
+
+- setup (video call, me clicking through interface)
+- evaluate her statements ("stumpf")
+
+## 1 | Discussion
 
 - open issues
 - handle missing (deleted) Bricks, missing translations
 - support multiple languages in other parts of PharMe system
 - touch on possibility to include NLP again
-
-### 1 | Testing / Feedback with Aniwaa
+- feedback from aniwaa
+- make connection with research aim and how it was met/what wasn't met
 
 ## 1 | Conclusion
 
@@ -125,4 +131,6 @@
 
 - PGx is on the way to get closer to patients (also mention *All Of Us* project
   in the US)
-- Annotation Interface could be used in other patient-oriented PGx projects as well
+- Annotation Interface could be used in other patient-oriented PGx projects as
+  well, also other projects in general?
+- connect back to research aim from introduction
