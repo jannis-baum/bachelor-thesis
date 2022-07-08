@@ -16,3 +16,5 @@
   and administrating data
 
 > Last paragraph outlines structure
+
+![some image](/Users/jannisbaum/Desktop/BPEB-Foto.jpg "title"){ width=50% }

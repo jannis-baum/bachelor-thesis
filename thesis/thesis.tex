@@ -1,0 +1,49 @@
+\documentclass{scrbook} % <= Druckversion: "scrbook" / Bildschirmversion: "scrreprt"
+\usepackage[english,bibtex]{osm-thesis} % <= Sprache der Arbeit ("ngerman"/"english"), Biblatex-Backend ("bibtex"/"biber")
+
+% ABOUT
+\newcommand{\hpitype}{Bachelor Thesis}
+\newcommand{\hpiauthor}{Jannis Baum}
+\newcommand{\hpititle}{Working Title}
+\newcommand{\hpititleother}{deutscher Titel} % <= das Studienreferat verlangt einen deutschen UND englischen Titel
+\newcommand{\hpisupervisor}{Prof.\,Dr.\,Erwin Böttinger, Tamara Slosarek}
+\newcommand{\hpichair}{Digital Health: Personalized Medicine}
+\newcommand{\hpiexternalsupervisor}{}
+\newcommand{\hpiexternal}{}
+\newcommand{\hpidate}{June 23 2022}
+
+\input{meta/pandoc}
+
+% DOCUMENT
+\bibliography{bibliography}
+
+\begin{document}
+
+	% Einband
+	\pagenumbering{alph}
+	\ifisbook\input{meta/coverpage}\fi
+	\ifisbook\cleardoubleemptypage\fi
+	
+	% (Haupt-)Titelseite, Abstract, ggf. Danksagung & Inhaltsverzeichnis
+	\pagenumbering{roman}
+	\input{meta/titlepage}
+	\ifisbook\cleardoubleemptypage\fi\input{meta/abstract}
+	\tableofcontents
+	\cleardoublepage
+
+	% Textteil
+	\pagenumbering{arabic}
+    $body$
+
+	% Bibliographie
+	\ifisbook\cleardoubleemptypage\fi
+	\phantomsection\addcontentsline{toc}{chapter}{\refname}
+	\printbibliography[category=cited]
+	
+	% ggf. bei englischen Arbeiten den deutschen Abstract nach hinten verschieben
+	% \ifisbook\pagestyle{plain}\cleardoubleemptypage\input{meta/abstract_deu}\fi
+
+	% Eigenständigkeitserklärung
+	\ifisbook\pagestyle{plain}\cleardoubleemptypage\input{meta/disclaimer}\fi
+
+\end{document}
