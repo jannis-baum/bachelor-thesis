@@ -18,15 +18,10 @@
 \bibliography{bibliography}
 
 \begin{document}
-
-	% Einband
-	\pagenumbering{alph}
-	\ifisbook\input{meta/coverpage}\fi
-	\ifisbook\cleardoubleemptypage\fi
 	
-	% (Haupt-)Titelseite, Abstract, ggf. Danksagung & Inhaltsverzeichnis
+	% (Haupt-)Titelseite, Abstract & Inhaltsverzeichnis
 	\pagenumbering{roman}
-	\input{meta/titlepage}
+	\input{meta/coverpage}
 	\ifisbook\cleardoubleemptypage\fi\input{meta/abstract}
 	\tableofcontents
 	\cleardoublepage
