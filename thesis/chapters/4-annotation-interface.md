@@ -1,5 +1,7 @@
 # Annotation Interface
 
+![Homepage](images/anni-home.png)
+
 ## Conceptualization
 
 - Infrastructure
