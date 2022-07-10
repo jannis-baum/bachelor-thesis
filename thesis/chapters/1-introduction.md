@@ -1,5 +1,7 @@
 # Introduction
 
+This is a test [@scott_personalizing_2011].
+
 > Introduce topic and define the terminology
 
 - Rough PGx topic introduction

@@ -15,8 +15,6 @@
 \input{tex/pandoc}
 
 % DOCUMENT
-\bibliography{bibliography}
-
 \begin{document}
 	
 	% (Haupt-)Titelseite, Abstract & Inhaltsverzeichnis
@@ -31,11 +29,6 @@
 	\pagenumbering{arabic}
     $body$
 
-	% Bibliographie
-	\ifisbook\cleardoubleemptypage\fi
-	\phantomsection\addcontentsline{toc}{chapter}{\refname}
-	\printbibliography[category=cited]
-	
 	% ggf. bei englischen Arbeiten den deutschen Abstract nach hinten verschieben
 	% \ifisbook\pagestyle{plain}\cleardoubleemptypage\input{meta/abstract_deu}\fi
 
