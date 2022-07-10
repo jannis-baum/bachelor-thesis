@@ -1,0 +1,7 @@
+template: template/osm.tex
+
+top-level-division: chapter
+
+citeproc: true
+metadata:
+  bibliography: bibliography.bib

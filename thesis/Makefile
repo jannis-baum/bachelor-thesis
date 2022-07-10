@@ -1,10 +1,6 @@
 OUT=thesis
 MD_FILES=$(wildcard chapters/*)
-PANDOC_CMD=pandoc \
-		   --template=tex/thesis.tex \
-		   --top-level-division=chapter \
-		   --bibliography=bibliography.bib \
-		   --citeproc
+PANDOC_CMD=pandoc --defaults=template/options.yaml
 
 .PHONY: pdf tex clean
 
