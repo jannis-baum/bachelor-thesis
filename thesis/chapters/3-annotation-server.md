@@ -1,11 +1,38 @@
 # Annotation Server
 
-- recap introduction, this is a component of PharMe service
-- Why do we need it, what does it do for the service?
-  - Connection of multiple data sources for different reasons (DrugBank, CPIC,
-    our curated guidelines from Google Sheet)
+As the data providing backend, the Annotation Server is one of PharMe's core
+components. With how we have conceptualized PharMe's patient-oriented frontend,
+the smartphone application, the Annotation Server needs to provide two main
+groups of information:
 
-## Technical implementation
+1. Drugs - users should be able to search for and find any drug
+   they want to consult PharMe about; independent of whether there actually are
+   any PGx findings for this drug.
+2. Guidelines - for drugs that do have PGx findings, users should be presented
+   with
+   a) simplified information that is comprehensible for them and
+   b) more detailed and complete information they can show to their doctor.
+
+\noindent
+To provide information on drugs (1.), we use the academic license of a database
+called DrugBank. DrugBank is one of the world's most used resources for drug
+information [@wishart_drugbank_2018]. DrugBank has provided us with a large XML
+file that contains all the information we use from them, namely drugs' names,
+descriptions, synonyms and their *RxCUIs*: unique identifiers given by the
+National Library of Medicine's standardized drug nomenclature RxNorm
+[@liu_rxnorm_2005]. Additionally, the PGx experts working with us annotate drugs
+that have PGx relevance with a short and concise drug class and indication made
+to be easily comprehensible for patients.
+
+Guideline information (2.) is first fetched from the public API of the Clinical
+Pharmacogenetics Implementation Consortium (CPIC). CPIC provides "peer-reviewed,
+updated, evidence-based, freely accessible guidelines for drug/gene-pairs"
+[@relling_cpic_2011] targeted at professionals in the field. This data is used
+in the case of 2.b) and directed at doctors. For 2.a), we again rely on the PGx
+experts working with us to annotate CPIC's guidelines with patient-friendly
+wording.
+
+## Technical overview
 
 - Tech stack
 - Rough architecture
