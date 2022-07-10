@@ -5,3 +5,4 @@ top-level-division: chapter
 citeproc: true
 metadata:
   bibliography: bibliography.bib
+  csl: style/chicago-author-date.csl
