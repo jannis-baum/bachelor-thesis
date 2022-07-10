@@ -2,6 +2,14 @@
 
 ![Homepage](images/anni-home.png)
 
+> > 1. Methods (setup, should enable reader to replicate study) \
+> >    (Conceptualization)
+> > 2. Results (observations w/o explanations or comments) \
+> >    (Implementation)
+> > 3. Discussion (interpretation, comment on results, connect to other
+> >    research, state limitations, future work) \
+> >    (Evaluation)
+
 ## Conceptualization
 
 - Infrastructure
