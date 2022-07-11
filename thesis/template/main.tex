@@ -37,21 +37,18 @@ $endif$
 	\ifisbook\cleardoubleemptypage\fi\input{meta/abstract}
 
 	\tableofcontents
-    \listoffigures
-
-    $if(glossary)$
-    \printnoidxglossary
-    $endif$
-    
 	\cleardoublepage
 
     % main text
 	\pagenumbering{arabic}
     $body$
 
-	% ggf. bei englischen Arbeiten den deutschen Abstract nach hinten verschieben
-	% \ifisbook\pagestyle{plain}\cleardoubleemptypage\input{meta/abstract_deu}\fi
-
+    % back matter
+    \listoffigures
+    $if(glossary)$
+    \printnoidxglossary
+    $endif$
+    
     % disclaimer
 	\ifisbook\pagestyle{plain}\cleardoubleemptypage\input{meta/disclaimer}\fi
 
