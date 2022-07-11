@@ -1,4 +1,4 @@
-template: template/osm.tex
+template: template/main.tex
 
 top-level-division: chapter
 
@@ -6,3 +6,6 @@ citeproc: true
 metadata:
   bibliography: bibliography.bib
   csl: style/chicago-author-date.csl
+
+metadata-files:
+  - meta/glossary.yaml

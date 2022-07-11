@@ -1,0 +1,45 @@
+glossary:
+
+  - id: pgx
+    name: pharmacogenomic
+    description: Relating to pharmacogenomics (PGx), the study of how an
+      individual's genome affects drug response
+    alt: PGx
+
+  - id: api
+    name: API
+    description: Application Program Interface
+    alt: Application Program Interface
+
+  - id: drugbank
+    name: DrugBank
+    description: PharMe's main resource for drug information
+
+  - id: cpic
+    name: CPIC
+    description: Clinical Pharmacogenetics Implementation Consortium, PharMe's
+      main resource for pharmacogenomic guidelines
+    alt: Clinical Pharmacogenetics Implementation Consortium
+
+  - id: rxcui
+    name: RxCUI
+    description: A unique drug identifier given by the standardized drug
+      nomenclature RxNorm
+
+  - id: indication
+    name: indication
+    description: A valid reason to use a drug
+
+  - id: guideline
+    name: guideline
+    description: Information on a drug-phenotype pair, primarily consisting of
+      an \gls{implication} and a \gls{recommendation}
+
+  - id: implication
+    name: implication
+    description: The consequence of having a given phenotype with respect to
+      the expected response to a given drug
+
+  - id: recommendation
+    name: recommendation
+    description: A suggestion resulting from an \gls{implication}

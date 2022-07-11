@@ -1,5 +1,5 @@
 \documentclass{scrbook} % <= Druckversion: "scrbook" / Bildschirmversion: "scrreprt"
-\usepackage[english,bibtex]{style/osm} % <= Sprache der Arbeit ("ngerman"/"english"), Biblatex-Backend ("bibtex"/"biber")
+\usepackage[english]{style/osm}
 
 % ABOUT
 \newcommand{\hpitype}{Bachelor Thesis}
@@ -13,27 +13,46 @@
 \newcommand{\hpidate}{July 23 2022}
 \newcommand{\hpisigndate}{23.07.2022}
 
+$if(glossary)$
+  \usepackage[toc]{glossaries}
+  \makenoidxglossaries
+  $for(glossary)$
+      \newglossaryentry{$glossary.id$}{
+        name={$glossary.name$},
+        description={$glossary.description$} $if(glossary.alt)$,
+        symbol={$glossary.alt$}$endif$
+    }
+  $endfor$
+  \newcommand{\glsa}[1]{\glssymbol{#1}}
+$endif$
+
 \input{template/pandoc}
 
 % DOCUMENT
 \begin{document}
 	
-	% (Haupt-)Titelseite, Abstract & Inhaltsverzeichnis
+    % front matter
 	\pagenumbering{roman}
 	\input{meta/coverpage}
 	\ifisbook\cleardoubleemptypage\fi\input{meta/abstract}
+
 	\tableofcontents
     \listoffigures
+
+    $if(glossary)$
+    \printnoidxglossary
+    $endif$
+    
 	\cleardoublepage
 
-	% Textteil
+    % main text
 	\pagenumbering{arabic}
     $body$
 
 	% ggf. bei englischen Arbeiten den deutschen Abstract nach hinten verschieben
 	% \ifisbook\pagestyle{plain}\cleardoubleemptypage\input{meta/abstract_deu}\fi
 
-	% Eigenständigkeitserklärung
+    % disclaimer
 	\ifisbook\pagestyle{plain}\cleardoubleemptypage\input{meta/disclaimer}\fi
 
 \end{document}
