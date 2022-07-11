@@ -20,9 +20,8 @@ provided us with a large XML file that contains all the information we use from
 them, namely drugs' names, descriptions, synonyms and their \glspl{rxcui}:
 unique identifiers given by the National Library of Medicine's standardized drug
 nomenclature RxNorm [@liu_rxnorm_2005]. Additionally, the \glsa{pgx} experts
-working with us annotate drugs that have \glsa{pgx} relevance with a short and
-concise drug class and \gls{indication} made to be easily comprehensible for
-patients.
+working with us annotate drugs that have \gls{pgx} relevance with descriptive
+texts made to be easily comprehensible for patients.
 
 \Gls{guideline} information (2.) is first fetched from the public \gls{api} of
 the \glsa{cpic} (\gls{cpic}). \gls{cpic} provides "peer-reviewed, updated,
@@ -34,10 +33,63 @@ with patient-friendly wording.
 
 ## Technical overview
 
-- Tech stack
-- Rough architecture
-  - Introduce different sub-modules and their roles
-  - Flow to build our database
+The Annotation Server is a web application made with the framework NestJS, which
+is widely known for its efficiency, scalability and full support of TypeScript
+[@noauthor_nestjs_2022] - the programming language the majority of PharMe's
+backend is built with. For storage of data, the Annotation Server relies on the
+reliable and perfomant relational database PostgreSQL
+[@noauthor_postgresql_2022] and the object relational mapping TypeORM to
+integrate PostgreSQL into the NestJS application.
+
+There are three main modules to the Annotation Server: `medications`,
+`phenotypes` and `guidelines`.
+
+The `medications` module is responsible for all data regarding drugs. It stores
+this data by maintaining a drug repository in the Annotation Server's database.
+This repository is initialized by loading and saving all relevant data from
+\gls{drugbank}'s XML file upon invocation of a POST endpoint the module
+provides. To simplify processing this large XML file's data, it is first
+transformed JSON format with the help of a Python script. The JSON format makes
+it easier for the TypeScript-based web application to process the data. Once the
+drug repository is initialized, the Annotation Server provides GET endpoints to
+retrieve information for one or multiple drugs along with functionality to apply
+specified filters.
+
+The `phenotypes` module maintains all the phenotypes \gls{cpic} offers
+guidelines for in its phenotype repository. These phenotypes are defined by a
+*gene symbol* such as `CYP2D6` and the effect variants with this phenotype have
+on the gene, i.e. a *gene result* such as `Normal metabolizer`. Aside from these
+identifying properties, some additional data \gls{cpic} provides about
+phenotypes is also stored. The `phenotypes` module exposes no dedicated
+endpoints as it is only used in relation to the `guidelines` module. The initial
+loading of the phenotype repository's data from \gls{cpic}'s \gls{api} is
+invoked by the `guidelines` module when it initializes its own data.
+
+The `guidelines` module keeps \glspl{guideline} in relation to phenotypes and
+drugs in its guidelines repository. This repository's data is initialized by
+invoking a POST endpoint the module provides which triggers loading all of
+\gls{cpic}'s guidelines from its \gls{api}. Since inconsistencies between
+\gls{cpic} and \gls{drugbank} may occur, matching errors are tracked in a
+separate error repository to be resolved by the maintainer. The `guidelines`
+module provides GET endpoints to retrieve guidelines and is connected to the
+`medications` module to allow fetching drugs along with their respective
+guidelines.
+
+Both the `medications` and `guidelines` modules expose PATCH endpoints to
+annotate additional data provided by the \glsa{pgx} experts working with us.
+These annotations are made to be easily comprehensible for patients, i.e. people
+without professional medical education, and consist of
+
+- a drug class and an \gls{indication} for drugs and
+- an \gls{implication}, explaining the effect a phenotype has on an individual's
+  response to a drug, as well as a \gls{recommendation}, giving a suggestion
+  based on the \gls{implication}'s consequences for \glspl{guideline}.
+
+\noindent With how the Annotation Server has been set up by us within the
+context of our team-based project, the \glsa{pgx} experts provide this data
+through a shared online Google Sheet. On request, the Annotation Server
+automatically downloads and processes this Google Sheet to annotate all data
+that matches the existing external data.
 
 ## Remaining issues
 
