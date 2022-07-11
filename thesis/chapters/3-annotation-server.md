@@ -13,7 +13,7 @@ groups of information:
      a) simplified information that is comprehensible for them and
      b) more detailed and complete information they can show to their doctor.
 
-\noindent To provide information on drugs (1.), we use the academic license of a
+\noindent To provide information on drugs (1.), we use the academic license to a
 database called \gls{drugbank}. \gls{drugbank} is one of the world's most used
 resources for drug information [@wishart_drugbank_2018]. \gls{drugbank} has
 provided us with a large XML file that contains all the information we use from
@@ -37,7 +37,7 @@ The Annotation Server is a web application made with the framework NestJS, which
 is widely known for its efficiency, scalability and full support of TypeScript
 [@noauthor_nestjs_2022] - the programming language the majority of PharMe's
 backend is built with. For storage of data, the Annotation Server relies on the
-reliable and perfomant relational database PostgreSQL
+reliable and performant relational database PostgreSQL
 [@noauthor_postgresql_2022] and the object relational mapping TypeORM to
 integrate PostgreSQL into the NestJS application.
 
@@ -52,13 +52,13 @@ provides. To simplify processing this large XML file's data, it is first
 transformed JSON format with the help of a Python script. The JSON format makes
 it easier for the TypeScript-based web application to process the data. Once the
 drug repository is initialized, the Annotation Server provides GET endpoints to
-retrieve information for one or multiple drugs along with functionality to apply
-specified filters.
+retrieve information for one or multiple drugs along with the option of applying
+filters.
 
 The `phenotypes` module maintains all the phenotypes \gls{cpic} offers
 guidelines for in its phenotype repository. These phenotypes are defined by a
-*gene symbol* such as `CYP2D6` and the effect variants with this phenotype have
-on the gene, i.e. a *gene result* such as `Normal metabolizer`. Aside from these
+gene symbol such as `CYP2D6` and the effect variants with this phenotype have
+on the gene, i.e. a gene result such as `Normal metabolizer`. Aside from these
 identifying properties, some additional data \gls{cpic} provides about
 phenotypes is also stored. The `phenotypes` module exposes no dedicated
 endpoints as it is only used in relation to the `guidelines` module. The initial
@@ -67,13 +67,16 @@ invoked by the `guidelines` module when it initializes its own data.
 
 The `guidelines` module keeps \glspl{guideline} in relation to phenotypes and
 drugs in its guidelines repository. This repository's data is initialized by
-invoking a POST endpoint the module provides which triggers loading all of
+invoking the POST endpoint the module provides, which triggers loading all of
 \gls{cpic}'s guidelines from its \gls{api}. Since inconsistencies between
 \gls{cpic} and \gls{drugbank} may occur, matching errors are tracked in a
 separate error repository to be resolved by the maintainer. The `guidelines`
 module provides GET endpoints to retrieve guidelines and is connected to the
-`medications` module to allow fetching drugs along with their respective
-guidelines.
+`medications` module to allow fetching guidelines along with the drugs they
+describe.
+
+![Simplified ER-diagram of Annotation Server
+database\label{er-diagram}](images/as-database.pdf)
 
 Both the `medications` and `guidelines` modules expose PATCH endpoints to
 annotate additional data provided by the \glsa{pgx} experts working with us.
@@ -91,7 +94,10 @@ through a shared online Google Sheet. On request, the Annotation Server
 automatically downloads and processes this Google Sheet to annotate all data
 that matches the existing external data.
 
-## Remaining issues
+See figure \ref{er-diagram} for a simplified overview of the Annotation Server's
+database and its sources.
+
+## Evaluation
 
 - Curation of guidelines is high effort (e.g. $2 ~\textrm{people} \cdot 2
   ~\textrm{days} / 100 ~\textrm{drug-gene pairs}$)
