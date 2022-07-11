@@ -70,10 +70,10 @@ drugs in its guidelines repository. This repository's data is initialized by
 invoking the POST endpoint the module provides, which triggers loading all of
 \gls{cpic}'s guidelines from its \gls{api}. Since inconsistencies between
 \gls{cpic} and \gls{drugbank} may occur, matching errors are tracked in a
-separate error repository to be resolved by the maintainer. The `guidelines`
-module provides GET endpoints to retrieve guidelines and is connected to the
-`medications` module to allow fetching guidelines along with the drugs they
-describe.
+separate `GuidelineError` repository to be resolved by the maintainer. The
+`guidelines` module provides GET endpoints to retrieve guidelines and is
+connected to the `medications` module to allow fetching guidelines along with
+the drugs they describe.
 
 ![Simplified ER-diagram of Annotation Server
 database\label{er-diagram}](images/as-database.pdf)
@@ -99,14 +99,49 @@ database and its sources.
 
 ## Evaluation
 
-- Curation of guidelines is high effort (e.g. $2 ~\textrm{people} \cdot 2
-  ~\textrm{days} / 100 ~\textrm{drug-gene pairs}$)
-- Matching manually curated data with API data from CPIC and \gls{drugbank} is
-  difficult
-  - doesn't always work, errors that can't be fixed automatically do occur
-- There is a need for humans to supervise this process more than simply
-  supplying guidelines through a one-way interface (e.g. a Google Sheet)
-- The manual work of curating guidelines has lots of room to be made more
-  efficient
-- Desire for automation is strong from the pharmacists' / curators' side
-  ($\to$ consultation with Aniwaa)
+The illustrated implementation of the Annotation Server relies on two parties to
+initialize its data and keep it up-to-date:
+
+- **A curating party** with sufficient \gls{pgx} expertise to curate
+  patient-oriented annotations from data they manually research from sources
+  such as \gls{cpic}. This party manually writes their annotations into the
+  Google Sheet, initially without any feedback of if and how well they match the
+  Annotation Server's existing external data.
+- **A maintaining party** with sufficient technical knowledge to invoke the
+  requests that trigger fetching data from external sources and the Google
+  Sheet. This party also oversees the before mentioned `GuidelineErrors` and
+  acts accordingly, which usually results in notifying the curating party to
+  make necessary adjustments.
+
+\noindent This separation leads to some difficulties in the Annotation Server's
+operation and creates an overhead of communication between the two parties.
+
+Initial loading or reloading (updating) of data should occur when and only when
+new \gls{cpic} or \gls{drugbank} data is available or when the curating party
+has modified the Google Sheet, since there is a downtime users will experience
+during this process. Triggering the process is therefore always initiated by the
+curating party, who however can't trigger it themselves and have to notify the
+maintaining party to do it.
+
+The Google Sheet is a one-way interface to the Annotation Server, yet it is the
+curating party's only interface other than communication with the maintaining
+party. Since the Sheet is set up completely manually, it is subject to human
+error, such as misspelling of a drug's name, which leads to a mismatch with the
+Annotation Server's existing data upon import. These human errors of the
+curating party have to then be detected by the maintaining party, who have to
+notify the curating party to resolve them, only for the maintaining party to
+trigger a reload that, again, leads to downtime users will experience. This
+communication-heavy process needs to be repeated until all errors are resolved.
+
+During our development phase, we were working as the maintaining party whilst
+the curating party was formed by \gls{pgx} expert Dr. Aniwaa Owusu Obeng, who
+tasked two of her students with curating annotations for roughly 100 drug-gene
+pairs and oversaw the process herself. According to Dr. Owusu Obeng, her
+students spent two days curating these annotations which equated to around 25 to
+30 hours for the initial curation process without accounting for the subsequent
+feedback loop. A significant part of the time spent during this process was to
+research of data from \gls{cpic} - the same data the Annotation Server already
+had and later had to match the manually curated data with again.
+
+Should PharMe be extended to support multiple languages in the future, this
+process would most likely need to be repeated with multiple curating parties.
