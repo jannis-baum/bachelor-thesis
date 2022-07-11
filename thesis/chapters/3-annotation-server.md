@@ -97,7 +97,7 @@ that matches the existing external data.
 See figure \ref{er-diagram} for a simplified overview of the Annotation Server's
 database and its sources.
 
-## Evaluation
+## Evaluation & Discussion \label{as-eval}
 
 The illustrated implementation of the Annotation Server relies on two parties to
 initialize its data and keep it up-to-date:
