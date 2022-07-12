@@ -1,4 +1,3 @@
 # Background
 
-> CPIC, whatever is necessary to understand main part, phenotypes, write at the
-> end
+> whatever is necessary to understand main part, write at the end

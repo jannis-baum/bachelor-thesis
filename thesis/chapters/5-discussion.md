@@ -1,7 +1,8 @@
 # Discussion
 
-- open issues
-- handle missing (deleted) Bricks, missing translations
+- what's next & missing for anni
+  - open issues
+  - handle missing (deleted) Bricks, missing translations
 - support multiple languages in other parts of PharMe system
 - touch on possibility to include NLP again
 - feedback from aniwaa

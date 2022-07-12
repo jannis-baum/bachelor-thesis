@@ -1,9 +1,9 @@
 # Conclusion
 
-> > - summary of findings, not of achievements
-> > - make strong statements
-> > - answer to research question (TODO: find research question)
-> > - importance of discovery and future implications
+> - summary of findings, not of achievements
+> - make strong statements
+> - answer to research question
+> - importance of discovery and future implications
 
 - PGx is on the way to get closer to patients (also mention *All Of Us* project
   in the US)
