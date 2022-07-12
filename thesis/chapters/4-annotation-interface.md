@@ -103,21 +103,42 @@ MongoDB document database and uses the library Mongoose for object modeling.
 ### Usage flow and technical overview
 
 - walk through how curator would use it
-- give architectural overview
+- give parallel architectural overview
 
 ### Data structure
 
 - models, responsibilities
   - mongoose discriminators on Annotations
-- connections to server
+- how models are mapped to AS database entities
 
 ### Abstraction & extensibility
 
-- Brick resolving
+- Brick resolving client & server-side and from various resolvers
 - reusable Annotation components
-- (what to abstract more $\to$ should probably move to discussion)
+- walk through how one could implement a new type of Annotation
 
 ## Testing with an expert
 
-- setup (video call, me clicking through interface)
-- evaluate her statements (stumpf)
+- setup: video call
+  - introduction to anni
+  - me clicking what she tells me to click to simulate usage test without
+    deployment
+  - worked through 4 "real" scenarios to get comprehensive feedback and have
+    aniwaa get to know anni
+- indicate her statements (stumpf)
+  - overall perceived as "very user-friendly" and "great annotation tool"
+  - learned the UI quickly and without confusion
+  - liked displayed CPIC data ("avoids using two screen i.e. CPIC and anni")
+    - would be cool to include DPWG guidelines as well
+  - question about updating individual CPIC guidelines
+  - Bricks
+    - comparison with Epic's templates and SmartPhrases
+    - should get names/keys, maybe even just numbers (curators will memorize
+      them with time)
+    - need search bar for annotation and Brick editing
+  - in production setting
+    - revision history (e.g. for when there is a complaint about data from a
+      specific day)
+    - staging
+    - reviewing changes, have to be approved by other curator(s) before upload
+    - summary pages, i.e. "This is what it'll look like in the app"
