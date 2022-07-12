@@ -42,12 +42,12 @@ efficient.
 The second major feature of my concept for the Annotation Interface revolves
 around modularizing annotations. I have discussed this idea with Dr. Aniwaa
 Owusu Obeng, an expert in the field of \glspl{pgx}, who has shown high
-enthusiasm for the concept and has even worked in a similar manner in the past.
+enthusiasm for the concept.
 
 This modularization is achieved by strictly limiting the creation of annotations
-to combinations of Text Bricks: predefined textual prototypes that adjust to
-the annotation they are used in by replacing placeholders with data matching the
-given annotation. One such Text Brick might be
+to combinations of Text Bricks: predefined textual prototypes or templates that
+adjust to the annotation they are used in by replacing placeholders with data
+matching the given annotation. One such Text Brick might be
 
 > `#drug.name` may not be the right medication for you.
 
@@ -56,11 +56,11 @@ Brick is annotating. Constraining annotations to be made up of combinations of
 Text Bricks brings an array of benefits.
 
 Having a finite number of options in creating annotation texts ensures
-consistency between annotations without needing to copy and paste text. This is
-particularly relevant when there is more than one person curating annotations.
-The limited options also make the curation process more straightforward once the
-initial Text Bricks have been defined which has the potential to reduce time
-requirements.
+consistency between annotations without needing to copy and paste text or
+risking human errors such as misspelling. This is particularly relevant when
+there is more than one person curating annotations.  The limited options also
+make the curation process more straightforward once the initial Text Bricks have
+been defined which has the potential to reduce time requirements.
 
 The full body of annotation texts being made up of a finite number of Text
 Bricks also simplifies support for multiple languages. A language expert can be
@@ -80,8 +80,8 @@ guidelines, curation time requirements can be reduced further by providing the
 curators with automated suggestions. This reduces their task to accepting or
 editing suggestions. Figure \ref{nlp-mockup} shows a mock-up of a user interface
 with the natural language processing model's suggestion of trained Text Bricks
-based on a \gls{cpic} guideline along with a visual explanation of why the first
-Text Brick was suggested.
+based on a \gls{cpic} guideline. In this example, the user clicks on the first
+Text Brick to get a visual explanation of why it was suggested.
 
 ## Implementation
 

@@ -57,13 +57,13 @@ filters.
 
 The `phenotypes` module maintains all the phenotypes \gls{cpic} offers
 guidelines for in its phenotype repository. These phenotypes are defined by a
-gene symbol such as `CYP2D6` and the effect variants with this phenotype have
-on the gene, i.e. a gene result such as `Normal metabolizer`. Aside from these
+gene symbol such as *CYP2D6* and the effect variants with this phenotype have
+on the gene, i.e. a gene result such as *Normal metabolizer*. Aside from these
 identifying properties, some additional data \gls{cpic} provides about
 phenotypes is also stored. The `phenotypes` module exposes no dedicated
-endpoints as it is only used in relation to the `guidelines` module. The initial
-loading of the phenotype repository's data from \gls{cpic}'s \gls{api} is
-invoked by the `guidelines` module when it initializes its own data.
+endpoints as it is only used in relation to the `guidelines` module. The loading
+of the phenotype repository's data from \gls{cpic}'s \gls{api} is invoked by the
+`guidelines` module when it initializes its own data.
 
 The `guidelines` module keeps \glspl{guideline} in relation to phenotypes and
 drugs in its guidelines repository. This repository's data is initialized by
@@ -138,10 +138,11 @@ the curating party was formed by \gls{pgx} expert Dr. Aniwaa Owusu Obeng, who
 tasked two of her students with curating annotations for roughly 100 drug-gene
 pairs and oversaw the process herself. According to Dr. Owusu Obeng, her
 students spent two days curating these annotations which equated to around 25 to
-30 hours for the initial curation process without accounting for the subsequent
-feedback loop. A significant part of the time spent during this process was to
-research of data from \gls{cpic} - the same data the Annotation Server already
-had and later had to match the manually curated data with again.
+30 hours of work for the initial curation process, without accounting for the
+subsequent feedback loop. A significant part of the time spent during this
+process was to research of data from \gls{cpic} - the same data the Annotation
+Server already had stored and that later had to match the manually curated data
+with again.
 
 Should PharMe be extended to support multiple languages in the future, this
 process would most likely need to be repeated with multiple curating parties.
