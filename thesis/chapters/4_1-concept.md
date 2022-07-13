@@ -55,7 +55,7 @@ language without having to know it themselves; simply by creating them in their
 own language.
 
 ![Conceptualized suggestion of Text Bricks based on \gls{cpic} guideline
-[@lee_clinical_2022] \label{nlp-mockup}](output.pdf)
+[@lee_clinical_2022] \label{nlp-mockup}](images/nlp-mockup.pdf)
 
 Finally, my concept proposes employing techniques of natural language processing
 for the picking of suitable Text Bricks based on the corresponding \gls{cpic}
