@@ -44,6 +44,19 @@ glossary:
     name: recommendation
     description: A suggestion resulting from an \gls{implication}
 
+  - id: warnl
+    name: warning level
+    description: A three-tier indication for a \gls{recommendation}'s severity,
+      i.e. "green", "yellow", or "red"
+
+  - id: annotation
+    name: annotation
+    description: A piece of medical information curated specifically for PharMe
+      and directed at patients, i.e. people without prior professional medical
+      education. An annotation can be a drug class or \gls{indication} for a
+      drug or an \gls{implication} or \gls{recommendation} for a
+      \gls{guideline}
+
   - id: brick
     name: Text Brick
     description: A predefined textual prototype or template used to create

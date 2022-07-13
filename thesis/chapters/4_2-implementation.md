@@ -15,15 +15,15 @@ applications based on the frontend JavaScript library React. It has primarily
 been tested using Apple's web browser Safari on macOS, and, in it's minimal
 implementation, does not strive to provide responsiveness for small screens.
 
-To store \glspl{brick} and the annotations they make up, the Annotation
+To store \glspl{brick} and the \glspl{annotation} they make up, the Annotation
 Interface has its own MongoDB document database and uses the library Mongoose
 for object modeling.
 
 ### Usage flow and technical overview
 
 The Annotation Interface's implementation can be found in PharMe's GitHub
-repository[^repo] under the root directory `annotation-interface`. All mentions of
-source code files will assume this directory as their base.
+repository[^repo] under the root directory `annotation-interface`. All mentions
+of source code files will assume this directory as their base.
 
 [^repo]: [github.com/hpi-dhc/PharMe](https://github.com/hpi-dhc/PharMe)
 
@@ -71,17 +71,17 @@ updates.
 \bigskip \noindent By navigating to the *Bricks* page group, the user can view,
 create, modify and delete \glspl{brick} in multiple languages. The initially
 visible \glsa{brick} overview offers filtering by the \glsa{brick}s' category
-and setting the language they are displayed in. The category filter and
-selected display language states are stored using the before mentioned React
-Contexts provided through the `Layout` component and are thereby persistent
-across navigation within the *Bricks* page group.
+and setting the language they are displayed in. The category filter and selected
+display language states are stored using the before mentioned React Contexts
+provided through the `Layout` component and are thereby persistent across
+navigation within the *Bricks* page group.
 
 When clicking on an existing \glsa{brick} to edit it and when adding a new one,
 the user can define translations for the \glsa{brick} by writing into a text
 field. Alongside of free text, \glsa{brick}s feature placeholders: textual
-components that adjust to the annotation the \glsa{brick} is used in, such as
-the respective drug's name. To facilitate working with placeholders when editing
-or creating \glsa{brick}s, the text fields used here feature automatic
+components that adjust to the \gls{annotation} the \glsa{brick} is used in, such
+as the respective drug's name. To facilitate working with placeholders when
+editing or creating \glsa{brick}s, the text fields used here feature automatic
 completion, suggestion and highlighting of placeholders, similar to what one
 might expect from modern code editors: Valid placeholders within the
 \glsa{brick} are highlighted with an underline, and a menu listing matching
@@ -110,8 +110,12 @@ placed underneath a transparent `<textarea>` element. The `<div>` element
 provides highlighting and the completion menu as children, while the
 `<textarea>` makes the text editable.
 
-- walk through how curator would use it
-- give parallel architectural overview
+\bigskip \noindent The Annotation Interface's final page group, *Annotations*,
+provides the user with the ability to manage PharMe's internal patient-oriented
+\glspl{annotation} made out of \glspl{brick}. When first opening this page
+group, the user is presented with all the data present on the Annotation Server
+along with filtering options. Data is filtered by drugs, i.e. \glspl{annotation}
+for the drug class and indications, and guidelines, i.e.
 
 ### Data structure
 
@@ -120,6 +124,11 @@ provides highlighting and the completion menu as children, while the
 - how models are mapped to AS database entities
 
 ### Abstraction and extensibility
+
+To showcase some of the Annotation Interface's architectual abstraction and the
+resulting extensibility and to give deeper insights into its code base, I will
+use this section to walk through how a new type of annotation could be
+implemented.
 
 - Brick resolving client & server-side and from various resolvers
 - reusable Annotation components

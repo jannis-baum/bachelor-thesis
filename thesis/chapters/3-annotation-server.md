@@ -80,13 +80,14 @@ database\label{er-diagram}](images/as-database.pdf)
 
 Both the `medications` and `guidelines` modules expose PATCH endpoints to
 annotate additional data provided by the \glsa{pgx} experts working with us.
-These annotations are made to be easily comprehensible for patients, i.e. people
-without professional medical education, and consist of
+These \glspl{annotation} are made to be easily comprehensible for patients, i.e.
+people without professional medical education, and consist of
 
 - a drug class and an \gls{indication} for drugs and
 - an \gls{implication}, explaining the effect a phenotype has on an individual's
-  response to a drug, as well as a \gls{recommendation}, giving a suggestion
-  based on the \gls{implication}'s consequences for \glspl{guideline}.
+  response to a drug, a \gls{recommendation}, giving a suggestion based on the
+  \gls{implication}'s consequences, and a \gls{warnl}, expressing the severity
+  of the \gls{recommendation}, for \glspl{guideline}.
 
 \noindent With how the Annotation Server has been set up by us within the
 context of our team-based project, the \glsa{pgx} experts provide this data
@@ -103,10 +104,10 @@ The illustrated implementation of the Annotation Server relies on two parties to
 initialize its data and keep it up-to-date:
 
 - **A curating party** with sufficient \gls{pgx} expertise to curate
-  patient-oriented annotations from data they manually research from sources
-  such as \gls{cpic}. This party manually writes their annotations into the
-  Google Sheet, initially without any feedback of if and how well they match the
-  Annotation Server's existing external data.
+  patient-oriented \glspl{annotation} from data they manually research from
+  sources such as \gls{cpic}. This party manually writes their
+  \glspl{annotation} into the Google Sheet, initially without any feedback of if
+  and how well they match the Annotation Server's existing external data.
 - **A maintaining party** with sufficient technical knowledge to invoke the
   requests that trigger fetching data from external sources and the Google
   Sheet. This party also oversees the before mentioned `GuidelineErrors` and
@@ -135,14 +136,14 @@ communication-heavy process needs to be repeated until all errors are resolved.
 
 During our development phase, we were working as the maintaining party whilst
 the curating party was formed by \gls{pgx} expert Dr. Aniwaa Owusu Obeng, who
-tasked two of her students with curating annotations for roughly 100 drug-gene
-pairs and oversaw the process herself. According to Dr. Owusu Obeng, her
-students spent two days curating these annotations which equated to around 25 to
-30 hours of work for the initial curation process, without accounting for the
-subsequent feedback loop. A significant part of the time spent during this
-process was to research of data from \gls{cpic} - the same data the Annotation
-Server already had stored and that later had to match the manually curated data
-with again.
+tasked two of her students with curating \glspl{annotation} for roughly 100
+drug-gene pairs and oversaw the process herself. According to Dr. Owusu Obeng,
+her students spent two days curating these \glspl{annotation} which equated to
+around 25 to 30 hours of work for the initial curation process, without
+accounting for the subsequent feedback loop. A significant part of the time
+spent during this process was to research of data from \gls{cpic} - the same
+data the Annotation Server already had stored and that later had to match the
+manually curated data with again.
 
 Should PharMe be extended to support multiple languages in the future, this
 process would most likely need to be repeated with multiple curating parties.
