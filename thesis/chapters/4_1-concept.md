@@ -29,40 +29,40 @@ Owusu Obeng, an expert in the field of \glspl{pgx}, who has shown high
 enthusiasm for the concept.
 
 This modularization is achieved by strictly limiting the creation of annotations
-to combinations of Text Bricks: predefined textual prototypes or templates that
-adjust to the annotation they are used in by replacing placeholders with data
-matching the given annotation. One such Text Brick might be
+to combinations of \glspl{brick}: predefined textual prototypes or templates
+that adjust to the annotation they are used in by replacing placeholders with
+data matching the given annotation. One such \gls{brick} might be
 
 > `#drug.name` may not be the right medication for you.
 
 \noindent where `#drug.name` will be replaced with the name of the drug the
-Brick is annotating. Constraining annotations to be made up of combinations of
-Text Bricks brings an array of benefits.
+\glsa{brick} is annotating. Constraining annotations to be made up of
+combinations of \glspl{brick} brings an array of benefits.
 
 Having a finite number of options in creating annotation texts ensures
 consistency between annotations without needing to copy and paste text or
 risking human errors such as misspelling. This is particularly relevant when
 there is more than one person curating annotations.  The limited options also
-make the curation process more straightforward once the initial Text Bricks have
-been defined which has the potential to reduce time requirements.
+make the curation process more straightforward once the initial \glspl{brick}
+have been defined which has the potential to reduce time requirements.
 
-The full body of annotation texts being made up of a finite number of Text
-Bricks also simplifies support for multiple languages. A language expert can be
-consulted once to translate all Bricks into the respective language. With Bricks
-defined in this language, the full body of annotation texts is consequently also
-translated and the curating party can create and update annotations for this
-language without having to know it themselves; simply by creating them in their
-own language.
+The full body of annotation texts being made up of a finite number of
+\glspl{brick} also simplifies support for multiple languages. A language expert
+can be consulted once to translate all \glsa{brick}s into the respective
+language. With \glsa{brick}s defined in this language, the full body of
+annotation texts is consequently also translated and the curating party can
+create and update annotations for this language without having to know it
+themselves; simply by creating them in their own language.
 
-![Conceptualized suggestion of Text Bricks based on \gls{cpic} guideline
+![Conceptualized suggestion of \glspl{brick} based on \gls{cpic} guideline
 [@lee_clinical_2022] \label{nlp-mockup}](images/nlp-mockup.pdf)
 
 Finally, my concept proposes employing techniques of natural language processing
-for the picking of suitable Text Bricks based on the corresponding \gls{cpic}
-guidelines. With a model trained to infer matching Text Bricks based on external
+for the picking of suitable \glspl{brick} based on the corresponding \gls{cpic}
+guidelines. With a model trained to infer matching \glspl{brick} based on external
 guidelines, curation time requirements can be reduced further by providing the
 curators with automated suggestions. This reduces their task to accepting or
 editing suggestions. Figure \ref{nlp-mockup} shows a mock-up of a user interface
-with the natural language processing model's suggestion of trained Text Bricks
+with the natural language processing model's suggestion of trained \glspl{brick}
 based on a \gls{cpic} guideline. In this example, the user clicks on the first
-Text Brick to get a visual explanation of why it was suggested.
+\gls{brick} to get a visual explanation of why it was suggested.

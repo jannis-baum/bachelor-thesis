@@ -43,3 +43,9 @@ glossary:
   - id: recommendation
     name: recommendation
     description: A suggestion resulting from an \gls{implication}
+
+  - id: brick
+    name: Text Brick
+    description: A predefined textual prototype or template used to create
+      annotations in the Annotation Interface
+    alt: Brick
