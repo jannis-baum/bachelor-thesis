@@ -234,9 +234,75 @@ the `TextBrick` model implements this as a static method by wrapping the
 
 ### Abstraction and extensibility
 
-To showcase some of the Annotation Interface's architectual abstraction and the
-resulting extensibility and to give deeper insights into its code base, I will
-use this section to walk through how a new type of annotation could be
-implemented.
+To illustrate some of the Annotation Interface's architectural abstraction and
+its resulting extensibility, as well as to give deeper insights into its code
+base, I will use this section to walk through how
 
-- reusable Annotation components
+1. a new category of \glspl{brick} with new placeholders, and
+2. the visual interface to display and edit a new type of \gls{annotation}
+
+\noindent could be implemented. These steps, along with adjustments to the
+\gls{api} and database models analogous to what is already implemented, are what
+would make up the requirements towards implementing a new type of
+\gls{annotation} on the Annotation Interface.
+
+#### \glspl{brick} and placeholders
+
+The first step towards adding the new category of \glspl{brick} is handled by
+adding the new category's displayed name to the array of \glsa{brick} categories
+(*usages*) in `common/constants.ts`. This will automatically enable the
+`TextBrick` database model and corresponding \gls{api} to process the new
+\glsa{brick}s, and adjust the interfaces in the *Bricks* page group to allow
+filtering for the new category, as well as adding and editing \glspl{brick} that
+use it.
+
+The only aspect that is left to be handled now is defining what placeholders the
+new \glsa{brick}s can use. This is achieved by adjusting the function
+`placeholdersForBrick` found in `database/helpers/resolve-bricks.ts` to return
+the possible placeholder strings accordingly. This file is also where new
+placeholders that are resolved with new or existing types of source data can be
+defined. To enable resolving placeholders from a new type of source data, its
+type is added to the type union `BrickResolver` and its mapping to the
+placeholders is defined in the function `getPlaceholders`.
+
+With placeholders defined, the newly implemented \glspl{brick} can be created,
+edited, used and resolved analogously to the existing ones.
+
+#### Visual \gls{annotation} components
+
+The interfaces that display an \gls{annotation}'s current value or a label
+indicating it is missing, and that provide the editing overlay shown in figure
+\ref{anni-annotation}, are built with multiple levels of abstraction. This
+abstraction makes the underlying React components reusable for flexible
+applications. All components referred to in this section are implemented in the
+`components/annotations` directory.
+
+The most abstract component here is the `AbstractAnnotation`. This component is
+responsible for displaying an \gls{annotation}'s current value, or, if
+appropriate, a label stating it is missing, as well as implementing showing and
+hiding the editing overlay visible in \ref{anni-annotation} and creating the
+overlay's basic structure. `AbstractAnnotation` provides a React reference that
+enables its parent component to hide the overlay and places its own children on
+the overlay.
+
+This component is used to implement interfaces for new types of
+\glspl{annotation} that are not based on \glsa{brick}s, such as the existing
+\gls{warnl} \gls{annotation} in `WarningLevelAnnotation.ts`.
+
+The components for \gls{brick}-based \glspl{annotation} feature additional
+levels of abstraction. The `AbstractBrickAnnotation` component uses
+`AbstractAnnotation` to implement the interface seen in \ref{anni-annotation} by
+adding the drag-and-drop functionality based on information it is given about
+the \glsa{brick}s to use. It also adds buttons to confirm or cancel changes
+using a given callback function.
+
+The next level of abstraction is implemented by the `BrickAnnotation` component,
+which sets up the `AbstractBrickAnnotation` with given Annotation Server data
+and an Annotation Interface \gls{api} endpoint by making assumptions about the
+structure of both. The `BrickAnnotation` is the component used by the final
+`MedAnnotation` and `GuidelineAnnotation` components, which are used to create
+the interfaces for all other existing types of \glspl{annotation}.
+
+Finally, the new type of \glsa{brick}-based \gls{annotation} is implemented
+using `BrickAnnotation` or `AbstractBrickAnnotation` based on whether it abides
+by `BrickAnnotation`'s assumptions.
