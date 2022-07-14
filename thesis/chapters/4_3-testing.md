@@ -1,12 +1,19 @@
 ## Testing with an expert
 
-- setup: video call
-  - introduction to anni
-  - me clicking what she tells me to click to simulate usage test without
-    deployment
-  - worked through 4 "real" scenarios to get comprehensive feedback and have
-    aniwaa get to know anni
-- indicate her statements (stumpf)
+- introduce aniwaa and goals of the meeting
+
+### Setup
+
+- video call
+- introduction to anni
+- me clicking what she tells me to click to simulate usage test without
+  deployment
+- worked through 4 "real" scenarios to get comprehensive feedback and have
+  aniwaa get to know anni
+
+### Results
+
+- indicate her statements (stumpf):
   - overall perceived as "very user-friendly" and "great annotation tool"
   - learned the UI quickly and without confusion
   - liked displayed CPIC data ("avoids using two screen i.e. CPIC and anni")
