@@ -46,7 +46,7 @@ with the interface and with PharMe's terminology.
 
 \bigskip \noindent Upon first opening the Annotation Interface, the user is
 presented with an overview of the status of the Annotation Server's external
-data on the *Home* page, i.e. with data from \gls{cpic} and \gls{drugbank}. This
+data, i.e. data from \gls{cpic} and \gls{drugbank}, on the *Home* page. This
 overview includes information on when the data has most recently been updated.
 The dates for these updates are retrieved from the Annotation Server through the
 Annotation Interface's \gls{api} and with the cache control technique
@@ -56,11 +56,16 @@ occur.
 
 Aside from checking when the last update has occurred, the user has the option
 to trigger a new update, which sends the necessary request to the Annotation
-Server. Before the buttons to trigger updates become visible, the interface's
+Server. Since triggering the update essentially resets all data on the
+Annotation Server, the Annotation Interface afterwards uses the Annotation
+Server's described PATCH \gls{api} to (re-)upload all of the \glspl{annotation}
+curated and stored here.
+
+Before the buttons to trigger updates become visible, the interface's
 visual design radically changes by having a dark themed overlay placed on top of
 its usual light theme. This aims to regain the user's active attention and
 signal that they can now make modifications to the live data on the Annotation
-Server, which may affect users. This dark themed overlay is used in all parts of
+Server, which may affect users. The dark themed overlay is used in all parts of
 the Annotation Interface that have the ability to make such modifications.
 Figure \ref{anni-home} shows the Annotation Interface's *Home* page along with
 the dark themed overlay that allows to trigger data updates.
@@ -162,9 +167,70 @@ synchronized with the \glspl{annotation} stored on the Annotation Interface.
 
 ### Data structure
 
-- models, responsibilities
-  - mongoose discriminators on Annotations
-- how models are mapped to AS database entities
+The Annotation Interface uses a MongoDB document database along with Mongoose
+for object modeling in TypeScript. All documents the Annotation Interface stores
+  in the database are typed with the help of TypeScript interfaces that extend
+  the base interface `IBaseModel` found in `database/helpers/types.ts`. This
+  base interface provides an optional property `_id` that is used to reference
+  documents in the database. The `_id` property is generically typed to be a
+  Mongoose `ObjectId`, a `string` or `undefined`, which allows the same document
+  interfaces to be used
+
+- when a document is created or retrieved on server side, i.e. having an
+  `ObjectId`,
+- when a document is sent to the client side with a serializable `string`
+  instead of an `ObjectId` as an `_id`, and
+- when data for a new document is created on the client side, i.e. without an
+  `_id`.
+
+The Annotation Interface's database is used to store \glspl{brick} with support
+for multiple languages, and \glspl{annotation} as combinations of references to
+  \glsa{brick}s. The Mongoose models for all database documents are implemented
+  in the `database/models` directory and use Mongoose's builtin techniques for
+  validation.
+
+To ensure unambiguous matching, the \glspl{annotation} stored on the Annotation
+Interface need to injectively map to entities on the Annotation Server. This is
+achieved by storing the corresponding drug's \gls{rxcui} in the documents for
+all \glspl{annotation} and additionally storing the corresponding gene symbol
+and gene results for \gls{guideline} \glspl{annotation}.
+
+The documents that describe \glspl{annotation} for drugs and guidelines are
+modeled by `MedAnnotation` and `GuidelineAnnotation` respectively. These models
+inherit from `AbstractAnnotation` for their common properties and validation
+functions.
+
+Since this is a commonly used operation, both `MedAnnotation` as well
+as `GuidelineAnnotation` implement a static method that finds the document
+matching with the given Annotation Server entity data. Aside from the discussed
+properties that are necessary for this matching to be unique, `MedAnnotation`
+models the properties `drugclass` and `indication`, and `GuidelineAnnotation`
+models `implication` and `recommendation` as arrays of references to
+`TextBrick`s for the \glsa{brick}-based \glspl{annotation}. These references are
+again generically typed as `ObjectId`s or `strings` to be usable on both server
+and client side. Additionally, `GuidelineAnnotation` models the three-tier
+\gls{warnl}, the only non-\glsa{brick}-based \gls{annotation}, as a `string`
+with three possible values.
+
+Documents for \glspl{brick} are modeled by `TextBrick`. Each \glsa{brick}
+document has an assigned `BrickUsage`, specifying what type of \gls{annotation}
+it can be used in, as well as an array of translations defined by their language
+and text.
+
+The common operation of *resolving* a \glsa{brick}, i.e. filling its
+placeholders with information for a specific \gls{annotation}, is implemented by
+the `resolveBricks` function defined in `database/helpers/resolve-bricks.ts`.
+This function takes an array of `TextBrick`s of any `_id` type, a target
+language, and a generic source `BrickResolver`. The `BrickResolver` can be drug
+or \gls{guideline} data from either the Annotation Interface or the Annotation
+Server, and is used to fill out the `TextBrick`s' placeholders accordingly to
+return their resolved texts. This function's flexibility makes it usable on both
+client and server side, with any type of source resolving data and makes it
+easily extensible for new placeholders as well as new types of resolving data.
+
+Since finding `TextBrick`s and then resolving them is also a common operation,
+the `TextBrick` model implements this as a static method by wrapping the
+`resolveBricks` function.
 
 ### Abstraction and extensibility
 
@@ -173,6 +239,4 @@ resulting extensibility and to give deeper insights into its code base, I will
 use this section to walk through how a new type of annotation could be
 implemented.
 
-- Brick resolving client & server-side and from various resolvers
 - reusable Annotation components
-- walk through how one could implement a new type of Annotation

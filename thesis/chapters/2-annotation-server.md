@@ -87,7 +87,7 @@ people without professional medical education, and consist of
 - an \gls{implication}, explaining the effect a phenotype has on an individual's
   response to a drug, a \gls{recommendation}, giving a suggestion based on the
   \gls{implication}'s consequences, and a \gls{warnl}, expressing the severity
-  of the \gls{recommendation}, for \glspl{guideline}.
+  of the \gls{recommendation} as one of three tiers, for \glspl{guideline}.
 
 \noindent With how the Annotation Server has been set up by us within the
 context of our team-based project, the \glsa{pgx} experts provide this data
