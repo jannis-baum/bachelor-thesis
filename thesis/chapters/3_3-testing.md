@@ -9,9 +9,9 @@ Interface's initial conceptualization and feature prioritization.
 ### Setup
 
 The consultation was set up as a roughly hour-long video call and initially
-accompanied by presentation slides. To start off, I gave a brief
-(re-)introduction on what the Annotation Interface is and aims to accomplish,
-and how it fits into the PharMe system.
+accompanied by presentation slides. To start off, I briefly reintroductioned
+what the Annotation Interface is and aims to accomplish, and explained how it
+fits into the PharMe system.
 
 The main part of the consultation revolved around use case testing. I chose to
 have the expert use the Annotation Interface in real scenarios, rather than

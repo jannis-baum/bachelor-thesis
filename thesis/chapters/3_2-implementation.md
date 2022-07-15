@@ -195,7 +195,7 @@ for multiple languages, and \glspl{annotation} as combinations of references to
   validation.
 
 To ensure unambiguous matching, the \glspl{annotation} stored on the Annotation
-Interface need to injectively map to entities on the Annotation Server. This is
+Interface need to injectively map to data on the Annotation Server. This is
 achieved by storing the corresponding drug's \gls{rxcui} in the documents for
 all \glspl{annotation} and additionally storing the corresponding gene symbol
 and gene results for \gls{guideline} \glspl{annotation}.
