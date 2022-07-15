@@ -1,15 +1,47 @@
 ## Testing with an expert
 
-- introduce aniwaa and goals of the meeting
+To test the Annotation Interface's usability and how it meets its goals of
+improving the process of curating and researching \glspl{annotation} for PharMe,
+I set up a second consultation with a \gls{pgx} expert. For this consultation I
+talked to Dr. Aniwaa Owusu Obeng who I also interviewed for the Annotation
+Interface's initial conceptualization and feature prioritization.
 
 ### Setup
 
-- video call
-- introduction to anni
-- me clicking what she tells me to click to simulate usage test without
-  deployment
-- worked through 4 "real" scenarios to get comprehensive feedback and have
-  aniwaa get to know anni
+The consultation was set up as a roughly hour-long video call and initially
+accompanied by presentation slides. To start off, I gave a brief
+(re-)introduction on what the Annotation Interface is and aims to accomplish,
+and how it fits into the PharMe system.
+
+The main part of the consultation revolved around use case testing. I chose to
+have the expert use the Annotation Interface in real scenarios, rather than
+merely presenting the application to them, to get more comprehensive feedback
+and explore aspects that might otherwise have been missed.
+
+Before introducing the testing scenarios, I explained the aims, focus and
+process of the testing and asked the expert to
+
+- think out loud and mention anything that is unclear, and
+- focus on fundamental functionality over suggestions to improve the visual
+  interface
+
+\noindent during the testing process. Furthermore, I reminded them that the
+testing is not meant to test them, but the Annotation Interface as an
+application, to ensure a comfortable environment.
+
+The testing consisted of the expert working through the following four scenarios
+that I chose to reflect real use cases with increasing complexity and to
+progressively disclose the Annotation Interface's features:
+
+1. Check when \gls{cpic} \gls{guideline} have last been updated on the
+   Annotation Server and update them.
+2. Find the existing patient-friendly drug class \gls{annotation} for a specific
+   drug.
+3. Create a new \gls{recommendation} \gls{brick} that uses a placeholder.
+4. Create an \gls{annotation} with the new \gls{brick}.
+
+During and after the testing we discussed various aspects of the Annotation
+Interface and how it might evolve in future versions.
 
 ### Results
 
