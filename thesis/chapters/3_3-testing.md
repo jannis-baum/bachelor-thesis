@@ -2,9 +2,9 @@
 
 To test the Annotation Interface's usability and how it meets its goals of
 improving the process of curating and researching \glspl{annotation} for PharMe,
-I set up a second consultation with a \gls{pgx} expert. For this consultation I
-talked to Dr. Aniwaa Owusu Obeng who I also interviewed for the Annotation
-Interface's initial conceptualization and feature prioritization.
+I set up a second consultation with an expert of \gls{pgx}s. For this
+consultation I talked to Dr. Aniwaa Owusu Obeng who I also interviewed for the
+Annotation Interface's initial conceptualization and feature prioritization.
 
 ### Setup
 
@@ -45,20 +45,54 @@ Interface and how it might evolve in future versions.
 
 ### Results
 
-- indicate her statements (stumpf):
-  - overall perceived as "very user-friendly" and "great annotation tool"
-  - learned the UI quickly and without confusion
-  - liked displayed CPIC data ("avoids using two screen i.e. CPIC and anni")
-    - would be cool to include DPWG guidelines as well
-  - question about updating individual CPIC guidelines
-  - Bricks
-    - comparison with Epic's templates and SmartPhrases
-    - should get names/keys, maybe even just numbers (curators will memorize
-      them with time)
-    - need search bar for annotation and Brick editing
-  - in production setting
-    - revision history (e.g. for when there is a complaint about data from a
-      specific day)
-    - staging
-    - reviewing changes, have to be approved by other curator(s) before upload
-    - summary pages, i.e. "This is what it'll look like in the app"
+The \glsa{pgx} expert perceived the Annotation Interface as overall "very
+user-friendly" and a "great annotation tool", and learned the user interface
+quickly and without apparent confusion. They mentioned liking the display of
+\gls{cpic}'s data, explicitly stating this would avoid the discomfort of "having
+to use two screens" in the curation and research process, i.e. one with the
+annotation tool and one with the corresponding sources. In this context, the
+expert also expressed it would be useful to additionally include findings from
+sources other than \gls{cpic}, such as publications of the Dutch
+\Gls{pgx} Working Group.
+
+On their first contact with \glspl{brick}, the expert quickly made me aware of
+their perceived similarity between \glsa{brick}s and a system they were already
+familiar with. This system is made by the company Epic and is, for example, used
+by physicians to create clinical notes based on so called *SmartPhrases*:
+templates with placeholders for data such as a patient's information that are
+automatically filled out with respect to the patient they are used for.
+According to the expert, it is likely that a user of the Annotation Interface
+would already be familiar with Epic's concept of templates.
+
+Additionally, the expert mentioned they would like having a way of creating
+names for \glspl{brick} or having an automatic identifying number assigned to
+them for easier referencing, explaining that someone working with the Annotation
+Interface will memorize the numbers over time. This reference could then be used
+to efficiently find \glsa{brick}s when creating \glspl{annotation}.
+
+While working with the interface to edit \glspl{annotation} (as depicted in
+figure \ref{anni-annotation}), the expert remarked that a search bar should be
+incorporated where the draggable \glspl{brick} are listed. They explained this
+would to make it easier to find \glsa{brick}s by their content or the name or
+number introduced above, saying that a search bar would be essential in keeping
+the work flow efficient once a large number of \glsa{brick}s has been defined.
+
+During the final part of the video call, the expert and I discussed various
+features that would be needed if PharMe was to be taken into a real production
+setting with real users. These features include
+
+- Seeing a log of what \gls{cpic} \glspl{guideline} have changed before updating
+  them and having the option to update only specific guidelines.
+- Keeping a revision history of all data that is presented to users. The expert
+  emphasized the need for this by explaining the scenario of receiving a
+  complaint about data of a specific day.
+- Implementing staging and reviewing phases into the administration of
+  \glspl{annotation}. This would allow for staged data to be reviewed by other
+  curators before making it onto the live application where users can access it.
+- Providing curators with a summary page of all data that will be presented to
+  users.
+
+Concluding our discussion, the expert emphasized the Annotation Interface's
+value to the curation and research process of a service like PharMe, emphasizing
+on its efficiency and support of multiple languages, and strongly encouraged its
+further development.
