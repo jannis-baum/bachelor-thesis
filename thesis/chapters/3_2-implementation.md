@@ -44,12 +44,14 @@ top of the page giving general information or hints about what this page does.
 These descriptions are meant to speed up the user's process getting familiar
 with the interface and with PharMe's terminology.
 
-\bigskip \noindent Upon first opening the Annotation Interface, the user is
-presented with an overview of the status of the Annotation Server's external
-data, i.e. data from \gls{cpic} and \gls{drugbank}, on the *Home* page. This
-overview includes information on when the data has most recently been updated.
-The dates for these updates are retrieved from the Annotation Server through the
-Annotation Interface's \gls{api} and with the cache control technique
+#### *Home* page group
+
+Upon first opening the Annotation Interface, the user is presented with an
+overview of the status of the Annotation Server's external data, i.e. data from
+\gls{cpic} and \gls{drugbank}, on the *Home* page. This overview includes
+information on when the data has most recently been updated.  The dates for
+these updates are retrieved from the Annotation Server through the Annotation
+Interface's \gls{api} and with the cache control technique
 stale-while-revalidate [@nottingham_http_2010]. Using this technique, the dates
 are revalidated to be kept up-to-date with the Annotation Server in case changes
 occur.
@@ -73,13 +75,15 @@ the dark themed overlay that allows to trigger data updates.
 ![The Annotation Interface's *Home* page
 \label{anni-home}](images/anni-home.png)
 
-\bigskip \noindent By navigating to the *Bricks* page group, the user can view,
-create, modify and delete \glspl{brick} in multiple languages. The initially
-visible \glsa{brick} overview offers filtering by the \glsa{brick}s' category,
-and setting the language they are displayed in. The category filter and selected
-display language states are stored using the before mentioned React Contexts
-provided through the `Layout` component and are thereby persistent across
-navigation within the *Bricks* page group.
+#### *Bricks* page group
+
+By navigating to the *Bricks* page group, the user can view, create, modify and
+delete \glspl{brick} in multiple languages. The initially visible \glsa{brick}
+overview offers filtering by the \glsa{brick}s' category, and setting the
+language they are displayed in. The category filter and selected display
+language states are stored using the before mentioned React Contexts provided
+through the `Layout` component and are thereby persistent across navigation
+within the *Bricks* page group.
 
 When clicking on an existing \glsa{brick} to edit it, and when adding a new one,
 the user can define translations for the \glsa{brick} by writing into a text
@@ -115,15 +119,16 @@ placed underneath a transparent `<textarea>` element. The `<div>` element
 provides highlighting and the completion menu as children, while the
 `<textarea>` makes the text editable.
 
-\bigskip \noindent The Annotation Interface's final page group, *Annotations*,
-provides the ability to manage PharMe's internal patient-oriented
-\glspl{annotation} made out of \glspl{brick}. Through this page group, the user
-is given access to all the data present on the Annotation Server along with
-filtering options. The initial data overview is split up into entries for drugs,
-and entries for \glspl{guideline}. The entries presented here are akin to the
-guidelines \gls{cpic} offers and the drugs corresponding with them, and are
-shown with labels indicating which entries are missing which types of
-\glspl{annotation}.
+#### *Annotations* page group
+
+The Annotation Interface's final page group, *Annotations*, provides the ability
+to manage PharMe's internal patient-oriented \glspl{annotation} made out of
+\glspl{brick}. Through this page group, the user is given access to all the data
+present on the Annotation Server along with filtering options. The initial data
+overview is split up into entries for drugs, and entries for \glspl{guideline}.
+The entries presented here are akin to the guidelines \gls{cpic} offers and the
+drugs corresponding with them, and are shown with labels indicating which
+entries are missing which types of \glspl{annotation}.
 
 Supplementary to selecting the category *drugs* or *\glspl{guideline}*, the user
 can choose to filter for entries that are missing \glspl{annotation} or entries

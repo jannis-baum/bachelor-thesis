@@ -45,4 +45,4 @@
 
 ### New
 
-- Should I mention the fact that I complete ignored responsiveness?
+- keep or delete level 4 subsections? include in toc?
