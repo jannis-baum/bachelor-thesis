@@ -3,8 +3,9 @@
 To test the Annotation Interface's usability and how it meets its goals of
 improving the process of curating and researching \glspl{annotation} for PharMe,
 I set up a second consultation with an expert of \gls{pgx}s. For this
-consultation I talked to Dr. Aniwaa Owusu Obeng who I also interviewed for the
-Annotation Interface's initial conceptualization and feature prioritization.
+consultation, I again talked to Dr. Aniwaa Owusu Obeng, who I also interviewed
+for the Annotation Interface's initial conceptualization and feature
+  prioritization.
 
 ### Setup
 
@@ -13,17 +14,17 @@ accompanied by presentation slides. To start off, I briefly reintroductioned
 what the Annotation Interface is and aims to accomplish, and explained how it
 fits into the PharMe system.
 
-The main part of the consultation revolved around use case testing. I chose to
-have the expert use the Annotation Interface in real scenarios, rather than
-merely presenting the application to them, to get more comprehensive feedback
-and explore aspects that might otherwise have been missed.
+The main part of the consultation revolved around use case testing. Instead of
+merely presenting the application to them, I chose to have the expert use the
+Annotation Interface in real scenarios to get more comprehensive feedback and
+explore aspects that might otherwise have been missed.
 
 Before introducing the testing scenarios, I explained the aims, focus and
 process of the testing and asked the expert to
 
 - think out loud and mention anything that is unclear, and
-- focus on fundamental functionality over suggestions to improve the visual
-  interface
+- focus on fundamental functionality, rather than suggestions to improve the
+  visual interface
 
 \noindent during the testing process. Furthermore, I reminded them that the
 testing is not meant to test them, but the Annotation Interface as an
@@ -33,7 +34,7 @@ The testing consisted of the expert working through the following four scenarios
 that I chose to reflect real use cases with increasing complexity and to
 progressively disclose the Annotation Interface's features:
 
-1. Check when \gls{cpic} \gls{guideline} have last been updated on the
+1. Check when \gls{cpic}'s \glspl{guideline} have last been updated on the
    Annotation Server and update them.
 2. Find the existing patient-friendly drug class \gls{annotation} for a specific
    drug.
@@ -59,7 +60,7 @@ On their first contact with \glspl{brick}, the expert quickly made me aware of
 their perceived similarity between \glsa{brick}s and a system they were already
 familiar with. This system is made by the company Epic and is, for example, used
 by physicians to create clinical notes based on so called *SmartPhrases*:
-templates with placeholders for data such as a patient's information that are
+templates with placeholders for data such as a patient's information, that are
 automatically filled out with respect to the patient they are used for.
 According to the expert, it is likely that a user of the Annotation Interface
 would already be familiar with Epic's concept of templates.
@@ -85,10 +86,11 @@ setting with real users. These features include
   them and having the option to update only specific guidelines.
 - Keeping a revision history of all data that is presented to users. The expert
   emphasized the need for this by explaining the scenario of receiving a
-  complaint about data of a specific day.
+  complaint about data from a specific day.
 - Implementing staging and reviewing phases into the administration of
   \glspl{annotation}. This would allow for staged data to be reviewed by other
-  curators before making it onto the live application where users can access it.
+  curators before making it onto the live application where it is presented to
+  users.
 - Providing curators with a summary page of all data that will be presented to
   users.
 
