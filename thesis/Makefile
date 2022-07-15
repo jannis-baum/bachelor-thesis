@@ -1,17 +1,20 @@
 OUT=thesis
 
 MD_FILES=$(wildcard chapters/*.md)
+TEXT=$(MD_FILES) $(wildcard template/*) $(wildcard meta/*) $(wildcard style/*)
+
 IMG_DIR=images
+IMGS=$(wildcard $(IMG_DIR)/*)
 PDF_IMGS=$(subst .svg,.pdf,$(wildcard $(IMG_DIR)/*.svg))
 
 PANDOC_CMD=pandoc --defaults=template/options.yaml
 
-$(OUT).pdf: $(MD_FILES) $(PDF_IMGS)
+$(OUT).pdf: $(TEXT) $(IMGS) $(PDF_IMGS)
 	@echo 'creating pdf'
 	@$(PANDOC_CMD) --output=$(OUT).pdf $(MD_FILES)
 	@qlmanage -p $(OUT).pdf &>/dev/null
 
-$(OUT).tex: $(MD_FILES)
+$(OUT).tex: $(TEXT)
 	@$(PANDOC_CMD) --output=$(OUT).tex $(MD_FILES)
 	@vim $(OUT).tex
 
