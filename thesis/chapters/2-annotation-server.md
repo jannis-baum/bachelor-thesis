@@ -35,11 +35,11 @@ with patient-friendly wording.
 
 The Annotation Server is a web application made with the framework NestJS, which
 is widely known for its efficiency, scalability and full support of TypeScript
-[@noauthor_nestjs_2022] - the programming language the majority of PharMe's
-backend is built with. For storage of data, the Annotation Server relies on the
-reliable and performant relational database PostgreSQL
-[@noauthor_postgresql_2022] and the object relational mapping TypeORM to
-integrate PostgreSQL into the NestJS application.
+[@kamil_mysliwiec_nestjs_2022] - the programming language the majority of
+PharMe's backend is built with. For storage of data, the Annotation Server
+relies on the reliable and performant relational database PostgreSQL
+[@the_postgresql_global_development_group_postgresql_2022] and the object
+relational mapping TypeORM to integrate PostgreSQL into the NestJS application.
 
 There are three main modules to the Annotation Server: `medications`,
 `phenotypes` and `guidelines`.

@@ -3,7 +3,9 @@ glossary:
   - id: pgx
     name: pharmacogenomic
     description: Relating to pharmacogenomics (PGx), the study of how an
-      individual's genome affects drug response
+      individual's genome affects drug response. Used as a hypernym for
+      \gls{pgx} and pharmacogenetic in this thesis since the precise difference
+      between the two is not relevant to its subjects
     alt: PGx
 
   - id: api
@@ -18,8 +20,13 @@ glossary:
   - id: cpic
     name: CPIC
     description: Clinical Pharmacogenetics Implementation Consortium, PharMe's
-      main resource for pharmacogenomic guidelines
+      main resource for \gls{pgx} guidelines
     alt: Clinical Pharmacogenetics Implementation Consortium
+
+  - id: dpwg
+    name: DPWG
+    description: Dutch Pharmacogenetics Working Group, a resource for \gls{pgx} guidelines
+    alt: Dutch Pharmacogenetics Working Group
 
   - id: rxcui
     name: RxCUI

@@ -1,4 +1,4 @@
-## Testing with an expert
+## Testing with an expert \label{ch-testing}
 
 To test the Annotation Interface's usability and how it meets its goals of
 improving the process of curating and researching \glspl{annotation} for PharMe,
@@ -26,7 +26,7 @@ process of the testing and asked the expert to
 - focus on fundamental functionality, rather than suggestions to improve the
   visual interface
 
-\noindent during the testing process. Furthermore, I reminded them that the
+\noindent during the testing process. In addition, I reminded them that the
 testing is not meant to test them, but the Annotation Interface as an
 application, to ensure a comfortable environment.
 
@@ -53,8 +53,9 @@ quickly and without apparent confusion. They mentioned liking the display of
 to use two screens" in the curation and research process, i.e. one with the
 annotation tool and one with the corresponding sources. In this context, the
 expert also expressed it would be useful to additionally include findings from
-sources other than \gls{cpic}, such as publications of the Dutch
-\Gls{pgx} Working Group.
+sources other than \gls{cpic}, such as publications of the \glsa{dpwg}
+(\gls{dpwg}), another resource for \gls{pgx} guidelines
+[@pharmgkb_university_dpwg_nodate].
 
 On their first contact with \glspl{brick}, the expert quickly made me aware of
 their perceived similarity between \glsa{brick}s and a system they were already

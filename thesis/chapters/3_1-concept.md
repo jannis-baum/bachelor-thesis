@@ -1,4 +1,4 @@
-## Conceptualization
+## Conceptualization \label{ch-concept}
 
 On its surface, the concept I have devised for the Annotation Interface closes
 the gap between the curating party and the Annotation Server by providing the

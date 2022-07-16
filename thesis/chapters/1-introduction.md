@@ -51,7 +51,7 @@ they provide, and these in turn also have to be matched with the external data.
 \bigskip In this thesis, I will give an overview of the Annotation Server we
 have built in shared effort over the course of our project. After explaining the
 before mentioned issues in more detail, I will propose, implement and test a
-solution towards easing the process of curating and administering
+solution towards facilitating the process of curating and administering
 patient-oriented \glsa{pgx} guideline data. Aside from attempting to solve this
 issue, the presented solution will also look into how PharMe's guidelines can be
 provided with multi-language support in a sustainable and efficient manner the
