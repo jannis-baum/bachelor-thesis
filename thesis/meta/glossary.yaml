@@ -20,12 +20,13 @@ glossary:
   - id: cpic
     name: CPIC
     description: Clinical Pharmacogenetics Implementation Consortium, PharMe's
-      main resource for \gls{pgx} guidelines
+      main resource for \gls{pgx} information
     alt: Clinical Pharmacogenetics Implementation Consortium
 
   - id: dpwg
     name: DPWG
-    description: Dutch Pharmacogenetics Working Group, a resource for \gls{pgx} guidelines
+    description: Dutch Pharmacogenetics Working Group, a resource for \gls{pgx}
+      information
     alt: Dutch Pharmacogenetics Working Group
 
   - id: rxcui
@@ -39,8 +40,8 @@ glossary:
 
   - id: guideline
     name: guideline
-    description: Information on a drug-phenotype pair, primarily consisting of
-      an \gls{implication} and a \gls{recommendation}
+    description: Information on a drug-phenotype pair, consisting of
+      an \gls{implication}, a \gls{recommendation} and a \gls{warnl}
 
   - id: implication
     name: implication

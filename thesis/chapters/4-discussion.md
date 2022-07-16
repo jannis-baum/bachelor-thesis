@@ -25,7 +25,7 @@ provide suggestions for which \glspl{brick} to use for an \gls{annotation} based
 on data from an external source such as \gls{cpic}. This feature has been left
 out of the scope of this thesis, since creating the now existing infrastructure
 was necessary first to make the automated suggestions viable and useful. The
-\glsa{pgx} expert I consulted to conceptualize, prioritize and test features of
+\glsa{pgx} expert I consulted to conceptualize, prioritize, and test features of
 the Annotation Interface has expressed high interest in this feature, yet
 prioritized it lower than the other features I will explain hereafter. Should
 automated suggestions be implemented in the future, related work such as
@@ -50,7 +50,7 @@ Similarly to how PharMe currently supports only one language, it leverages only
 one external \gls{pgx} resource. To further assist the research process of
 curating \glspl{annotation}, implementing additional sources such as \gls{dpwg}
 is another high priority feature for the Annotation Interface as well as PharMe
-as a system. With PharMe offering additional data from more sources, the
+as a whole. With PharMe offering additional data from more sources, the
 Annotation Interface also gains additional value as the system that is used to
 manage possible conflicts or inconsistencies between the sources.
 
@@ -62,7 +62,7 @@ the Annotation Server and are thereby available for users. This is, as also
 brought up by the consulted \glsa{pgx} expert, not viable in a production
 setting - especially for a health service like PharMe. To avoid human error and
 provide the crucial layer of certainty in correctness of the information that is
-presented to users, the production-related features introduced in
+presented to users, the production-related features explained in
 \ref{ch-testing} are of highest priority if PharMe is to be taken into such a
 setting.
 
@@ -76,8 +76,8 @@ administration that the Annotation Interface now handles was recognized.
 To preserve the team's existing knowledge about its architecture as well as the
 Annotation Server's ability to work without the Annotation Interface, and to
 allow myself to work independently for the context of this thesis, I developed
-the Annotation Interface as an entirely distinct second web application. This
-enabled me to explore the various features and concepts I introduced in this
+the Annotation Interface as a second and entirely distinct web application. This
+enabled me to explore the various features and concepts I examined in this
 thesis.
 
 Now that requirements and features for PharMe's data providing backend are much
@@ -89,4 +89,4 @@ them would, with the current boundary between the Annotation Server and
 Interface, inherently lead to building the same concepts, such as the data
 structure to support multiple languages, into both systems. I regard avoiding
 the resulting repetition and complexity as vital in keeping maintainability and
-extensibility of the system.
+extensibility of the system as a whole.
