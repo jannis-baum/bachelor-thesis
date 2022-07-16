@@ -68,5 +68,25 @@ setting.
 
 ## Boundary between Annotation Server and Interface
 
-- anni and AS should ideally not be separate (was good in my case anyways)
-- mention multi-language support, staging, additional sources
+During our project, we worked on the Annotation Server throughout various
+changes of requirements and of how PharMe provides its users with data.
+Development of the Annotation Server began long before the need for human data
+administration that the Annotation Interface now handles was recognized.
+
+To preserve the team's existing knowledge about its architecture as well as the
+Annotation Server's ability to work without the Annotation Interface, and to
+allow myself to work independently for the context of this thesis, I developed
+the Annotation Interface as an entirely distinct second web application. This
+enabled me to explore the various features and concepts I introduced in this
+thesis.
+
+Now that requirements and features for PharMe's data providing backend are much
+more clear, I strongly encourage considering rebuilding the Annotation Server
+and Annotation Interface as one joint web application if PharMe is to be
+developed further in the future. The argument for this becomes especially clear
+when considering the features I discussed in the previous section. Implementing
+them would, with the current boundary between the Annotation Server and
+Interface, inherently lead to building the same concepts, such as the data
+structure to support multiple languages, into both systems. I regard avoiding
+the resulting repetition and complexity as vital in keeping maintainability and
+extensibility of the system.
