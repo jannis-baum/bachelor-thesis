@@ -1,23 +1,25 @@
 # Conclusion
 
 This thesis explored how to support field experts in their process of
-researching, curating, and maintaining \gls{pgx} data for the patient-oriented
-\glsa{pgx} service PharMe, as well as how to provide this data in multiple
-languages.
+researching, curating and maintaining informative \gls{pgx} data, as well as how
+to provide this data in multiple languages. The presented methods focus on the
+service PharMe: a patient-oriented resource for \glsa{pgx} information.
 
 Within this context, I explained PharMe's preexisting approach to data
 administration and discussed the related complications, namely its high
-communication complexity and susceptibility to human error. Subsequently, I
-conceptualized, implemented and tested the Annotation Interface as a method of
-solving these complications while creating the fundamental infrastructure
-towards multi-language support. I conducted this work in consultation with an
-expert in the field of \glspl{pgx}.
+communication complexity, susceptibility to human error, and inaccessibility to
+the field experts responsible for it. Subsequently, I conceptualized,
+implemented and tested the Annotation Interface as a method of solving these
+complications while creating the fundamental infrastructure towards
+multi-language support. I conducted this work in consultation with an expert in
+the field of \glspl{pgx}.
 
 In its presented state, the Annotation Interface fulfills its aim of
 facilitating the research and curation process of patient-oriented information
-for PharMe. This is primarily achieved by modularizing the information, which,
-  while increasing its consistency, maintainability and curation efficiency,
-    also lays the foundation for the desired multi-language support.
+for PharMe. This is primarily achieved by making data administration interactive
+  and modularizing the information, which, while increasing its consistency,
+  maintainability and curation efficiency, also lays the foundation for the
+  desired multi-language support.
 
 By testing the Annotation Interface with the consulted \glsa{pgx} expert, I have
 verified its efficacy at meetings its research aim and gained further insights
