@@ -5,7 +5,8 @@ top-level-division: chapter
 citeproc: true
 metadata:
   bibliography: bibliography.bib
-  csl: style/chicago-author-date.csl
+  csl: style/cell-numeric.csl
+  link-citations: true
 
 metadata-files:
   - meta/glossary.yaml
