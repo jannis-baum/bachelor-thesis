@@ -38,8 +38,11 @@ majority of PharMe's backend is built with. For storage of data, the Annotation
 Server relies on PostgreSQL, "the world's most advanced open source relational
 database" [@the_postgresql_global_development_group_postgresql_2022] and TypeORM
 [@typeorm_typeorm_nodate] to interact with PostgreSQL from the NestJS
-application. The Annotation Server provides a POST endpoints that trigger
-loading the data it uses from \gls{cpic} and \gls{drugbank}.
+application.
+
+The Annotation Server provides POST endpoints that trigger loading the data it
+uses from \gls{cpic} and \gls{drugbank}. Before loading is initialized, all
+previously existing data is deleted from its database.
 
 There are three main modules to the Annotation Server: `medications`,
 `phenotypes` and `guidelines`. Figure \ref{er-diagram} shows a simplified
