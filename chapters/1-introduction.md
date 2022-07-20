@@ -13,7 +13,10 @@ reactions, adoption in real-world treatment of patients has been slow
 With the goal of accelerating the adoption of \glsa{pgx} into treatment of
 patients, we have worked on the service and research project *PharMe* in a team
 of eight students from Hasso Plattner Institute at Prof. Böttinger's chair
-Digital Health - Personalized Medicine.
+Digital Health - Personalized Medicine. The implementation of PharMe I will be
+referring to in this thesis can be found in its GitHub repository[^repo].
+
+[^repo]: [https://github.com/hpi-dhc/PharMe/tree/673c469](https://github.com/hpi-dhc/PharMe/tree/673c469)
 
 PharMe is directed specifically at patients, i.e. people without professional
 medical education, and aims to (1) be an educational resource by introducing its
