@@ -62,11 +62,11 @@ glossary:
     description: A piece of medical information curated specifically for PharMe
       and directed at patients, i.e. people without prior professional medical
       education. An annotation can be a drug class or \gls{indication} for a
-      drug or an \gls{implication}, \gls{recommendation} or \gls{warnl} for a
+      drug, or an \gls{implication}, \gls{recommendation} or \gls{warnl} for a
       \gls{guideline}
 
   - id: brick
     name: Text Brick
-    description: A predefined textual prototype or template used to create
+    description: A predefined textual component or template used to create
       annotations in the Annotation Interface
     alt: Brick

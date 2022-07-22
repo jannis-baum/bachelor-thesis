@@ -11,7 +11,7 @@ that are used to create and maintain \glspl{annotation}.
 The second major feature of the concept for the Annotation Interface revolves
 around modularizing \glspl{annotation}. This modularization is achieved by
 strictly limiting the creation of \glspl{annotation} to combinations of
-\glspl{brick}: predefined textual prototypes or templates that adjust to the
+\glspl{brick}: predefined textual components or templates that adjust to the
 \gls{annotation} they are used in. One such \gls{brick} might be
 
 > `#drug.name` may not be the right medication for you.
@@ -33,5 +33,5 @@ clicks on the first \gls{brick} to get a visual explanation of why it was
 suggested.
 
 ![Conceptualized suggestion of \glspl{brick} based on \gls{cpic} guideline
-(left) and visual explanation of why on of the \glspl{brick} was suggested
+(left) and visual explanation of why one of the \glspl{brick} was suggested
 (right) \label{nlp-mockup}](images/nlp-mockup.pdf)

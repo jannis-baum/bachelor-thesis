@@ -2,7 +2,7 @@
 
 In the scope of this thesis I implemented a minimal viable version of the
 conceptualized Annotation Interface. The implemented features were selected in
-consultation with Dr. Aniwaa Owusu Obeng and include
+consultation with \glsa{pgx} expert Dr. Aniwaa Owusu Obeng and include
 
 - infrastructure that eliminates the need for the Google Sheet and gives control
   over data updates to the curating party,
@@ -52,15 +52,15 @@ case more pages or sections are added.
 
 All main pages of the Annotation Interface include a short description at the
 top of the page giving general information or hints about what this page does.
-These descriptions are meant to speed up the user's process getting familiar
+These descriptions are meant to speed up the user's process of getting familiar
 with the interface and with PharMe's terminology.
 
 #### *Home* section
 
 Upon first opening the Annotation Interface, the user is presented with an
 overview of the status of the Annotation Server's external data, i.e. data from
-\gls{cpic} and \gls{drugbank}, on the *Home* page. This can be seen in the top
-section of Figure \ref{anni-home}.
+\gls{cpic} and \gls{drugbank}, on the *Home* page. This can be seen in the upper
+part of Figure \ref{anni-home}.
 
 ![The *Home* page (top) and its interface to update external data (bottom)
 \label{anni-home}](images/anni-home.png)
@@ -81,18 +81,21 @@ to upload all of the \glspl{annotation} curated and stored here.
 
 Before the buttons to trigger updates become visible, the interface's visual
 design radically changes by having a dark themed overlay placed on top of its
-usual light theme as visible in the bottom section of Figure \ref{anni-home}.
-This change in design aims to regain the user's active attention and signal that
-they can now make modifications to the live data on the Annotation Server, which
-may affect PharMe users. The dark themed overlay is used in all parts of the
+usual light theme as visible in the lower part of Figure \ref{anni-home}.  This
+change in design aims to regain the user's active attention and signal that they
+can now make modifications to the live data on the Annotation Server, which may
+affect PharMe users. The dark themed overlay is used in all parts of the
 Annotation Interface that have the ability to make such modifications.
 
 #### *Bricks* section
 
 By navigating to the *Bricks* section, the user can view, create, modify and
 delete \glspl{brick} in multiple languages. The initially visible \glsa{brick}
-<!-- Would also show screenshot here -->
-overview offers filtering by the \glsa{brick}s' category, and setting the
+overview is shown in Figure \ref{anni-bricks}.
+
+![Overview of defined \glspl{brick} \label{anni-bricks}](images/anni-bricks.png)
+
+This overview offers filtering by the \glsa{brick}s' category, and setting the
 language they are displayed in. The category filter and selected display
 language states are stored using the before mentioned React Contexts provided
 through the `Layout` component and are thereby persistent across navigation
@@ -103,7 +106,7 @@ presented with a page that is dedicated to editing \glspl{brick} and their
 translations. Figure \ref{anni-brick} shows a \glsa{brick}'s English translation
 being edited.
 
-![Editing a \glsa{brick} with placeholders
+![Editing a \gls{brick} with placeholders
 \label{anni-brick}](images/anni-brick.png)
 
 On this page the user can define translations for the \glsa{brick} by writing
@@ -115,11 +118,10 @@ automatic completion, suggestion, and highlighting of placeholders; similar to
 that of modern code editors.
 
 As visible in Figure \ref{anni-brick}, valid placeholders within the
-\glsa{brick} are highlighted with an underline, and a menu listing matching
-placeholders is displayed right under the user's cursor when detecting it is
-within the context of a placeholder or the user is about to add one. The menu is
-navigable with the arrow keys, and the selected option can be picked using the
-return key.
+\glsa{brick} are highlighted with an underline, and a suggestion menu is
+displayed right below the user's cursor when detecting it is within the context
+of a placeholder or the user is about to add one. The menu is navigable with the
+arrow keys, and the selected option can be picked using the return key.
 
 The finished version of this \gls{brick} might, for example, be resolved to *"As
 a CYP2C9 normal metabolizer you can use clopidogrel at standard doses.*", when
@@ -130,7 +132,7 @@ The highlighting, automatic completion, and suggestion are implemented without
 any additional external dependencies in the components `AutocompleteArea` and
 `AutocompleteMenu` found in the `components/bricks` directory. The underlying
 strategy is using an HTML `<div>` element along with the `<textarea>` element
-that allows the text editing. The `<div>` is aligned to have the same bounding
+that enables the text editing. The `<div>` is aligned to have the same bounding
 box as the `<textarea>` and placed behind it, while the `<textarea>` itself is
 given a transparent background to make the `<div>` visible. With this layout,
 the same text that the user is writing into the `<textarea>` is simultaneously
@@ -141,23 +143,28 @@ as children. Hence, the text visible in Figure \ref{anni-brick} stems from the
 
 #### *Annotations* section
 
-The Annotation Interface's final section, *Annotations*, provides the ability
-to manage PharMe's internal patient-oriented \glspl{annotation} made out of
+The Annotation Interface's final section, *Annotations*, provides the ability to
+manage PharMe's internal patient-oriented \glspl{annotation} made out of
 \glspl{brick}. Through this section, the user is given access to all the data
 present on the Annotation Server along with filtering options. The initial
-overview table is split up into entries for drugs and entries for
+overview in this section is depicted in Figure \ref{anni-annotations}.
+
+![Overview of \gls{guideline} \glspl{annotation}
+\label{anni-annotations}](images/anni-annotations.png)
+
+This overview is split up into entries for drugs and entries for
 \glspl{guideline}. All entries presented here are associated with a guideline
 \gls{cpic} offers, or with a drug corresponding with one of these guidelines.
 Additionally, each entry that is missing one or more types of \glspl{annotation}
-has a label indicating this.
-<!-- Would give a screenshot in the beginning again -->
+has a label indicating this. The first listed entry in Figure
+\ref{anni-annotations} for example is missing its \gls{warnl} \gls{annotation}.
 
 Supplementary to selecting the category *drugs* or *\glspl{guideline}*, the user
 can choose to filter for entries with missing \glspl{annotation} or entries that
 already have all patient-friendly \glspl{annotation} defined, i.e. are fully
 curated. In addition to this, curators can filter entries more specifically by
 using the search bar. To preserve the filtering states and selected entry
-category across navigation within the *Annotations* section, they are stored
+category across navigation within the *Annotations* section, these are stored
 using the React Contexts provided through the `Layout` component. This is done
 analogously to the filtering states in the *Bricks* section.
 
@@ -205,28 +212,21 @@ property is generically typed to be a Mongoose `ObjectId`, a `string` or
   instead of an `ObjectId` as an `_id`,
 - when data for a new document is created on the client side, i.e. without an
   `_id`.
-<!-- This whole explanation is a bit difficult to grasp without context;
-would first explain the data structure (maybe with some suitable diagram, as the
-ER diagram you included for the Annotation Server) -->
 
 The Annotation Interface's database is used to store \glspl{brick} with support
 for multiple languages, and \glspl{annotation} as combinations of references to
   \glsa{brick}s. The Mongoose models for all database documents are implemented
   in the `database/models` directory and use Mongoose's builtin techniques for
   validation.
-<!-- This paragraph would make a good first paragraph, I think (in combination
-with some figure explaining the structure, as mentioned above) -->
 
 To ensure unambiguous matching, the \glspl{annotation} stored on the Annotation
 Interface need to injectively map to data on the Annotation Server. This is
-<!-- Why "injectively"? -->
 achieved by storing the corresponding \gls{rxcui} in the documents for all
-\glspl{annotation}, and respectively storing the corresponding gene symbol and
-gene results for \gls{guideline} \glspl{annotation}.
+\glspl{annotation}, and storing the corresponding gene symbol and gene results
+for \gls{guideline} \glspl{annotation}.
 
 The documents that describe \glspl{annotation} for drugs and guidelines are
 modeled by `MedAnnotation` and `GuidelineAnnotation` respectively. These models
-<!-- All models you name here should be part of a figure :) -->
 inherit from `AbstractAnnotation` for their common properties and validation
 functions.
 
@@ -257,19 +257,15 @@ return their resolved texts. This function's flexibility makes it usable on both
 client and server side, with any type of source resolving data and makes it
 easily extensible for new placeholders as well as new types of resolving data.
 
-Since finding `TextBrick`s and then resolving them is also a common operation,
-the `TextBrick` model implements this as a static method by wrapping the
+The `TextBrick` model implements finding \glsa{brick} documents and then
+returning their resolved texts as a static method by wrapping the
 `resolveBricks` function.
-
-<!-- This whole section is really hard to understand; in addition to the
-diagram, an example or some basic code might help? (Especially with the different
-typing?) -->
 
 ### Abstraction and extensibility
 
 To illustrate some of the Annotation Interface's architectural abstraction and
-its resulting extensibility, I will use this section to how to implement the
-following additions to the Annotation Interface:
+its resulting extensibility, I will use this section to walk through how to
+implement the following additions to the Annotation Interface:
 
 1. A new category of \glspl{brick} with new placeholders
 2. The visual interface to display and edit a new type of \gls{annotation}
@@ -309,7 +305,7 @@ components is most suitable as a starting point. All components referred to in
 this section are implemented in the `components/annotations` directory.
 
 The existing interfaces that display an \gls{annotation}'s current value and
-provide the editing overlay shown in figure \ref{anni-annotation} are built with
+provide the editing overlay shown in Figure \ref{anni-annotation} are built with
 multiple levels of abstraction. This abstraction makes the underlying React
 components reusable for flexible applications. Figure \ref{anni-components}
 gives an overview of all existing components used for displaying and editing
@@ -340,8 +336,8 @@ which sets up `AbstractBrickAnnotation` based on given Annotation Server data
 and an Annotation Interface \gls{api} endpoint, by making assumptions about the
 structure of both.
 
-The visual interface for the new type of \gls{annotation} to implement is
-created as a composition with one of these three abstract components.  If the
+Finally, the visual interface for the new type of \gls{annotation} to implement
+is created as a composition with one of these three abstract components.  If the
 new type of \gls{annotation}, like the existing \gls{warnl} \gls{annotation}, is
 not based on \glsa{brick}s, it is directly implemented as a composition with
 `AbstractAnnotation`. If it is \glsa{brick}-based, it is implemented with

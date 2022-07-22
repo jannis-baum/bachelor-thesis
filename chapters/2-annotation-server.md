@@ -6,14 +6,14 @@ consists of two main groups of information:
 1. Drugs -- users should be able to search for and find any drug
    they want to consult PharMe about; regardless of whether there actually are
    any \glsa{pgx} findings for this drug.
-2. \Glspl{guideline} - for drugs that do have \glsa{pgx} findings, users should
+2. \Glspl{guideline} -- for drugs that do have \glsa{pgx} findings, users should
    be presented with
      a) simplified information that is comprehensible for them and
      b) more detailed and complete information they can show to their doctor.
 
 \noindent To provide information on drugs (1.), we use a database called
 \gls{drugbank}, which is one of the world's most used resources for drug
-information [@wishart_drugbank_2018]. Using their academic license, we can
+information [@wishart_drugbank_2018]. With their academic license, we can
 download an XML file from \gls{drugbank} that contains all the information we
 use from them. Additionally, \glsa{pgx} experts annotate drugs that have
 \gls{pgx} relevance with descriptive texts that are comprehensible for patients.
@@ -32,8 +32,8 @@ implementation is English.
 ## Technical overview
 
 The Annotation Server is a web application built with NestJS, "a framework for
-building efficient, scalable [...] server-side applications" with support for
-TypeScript [@kamil_mysliwiec_nestjs_nodate], the programming language the
+building efficient, scalable [...] server-side applications [with support for
+TypeScript]" [@kamil_mysliwiec_nestjs_nodate], the programming language the
 majority of PharMe's backend is built with. For storage of data, the Annotation
 Server relies on PostgreSQL, "the world's most advanced open source relational
 database" [@the_postgresql_global_development_group_postgresql_2022] and TypeORM
@@ -52,24 +52,22 @@ ER-Diagram of the database structure corresponding with these modules.
 database\label{er-diagram}](images/as-database.pdf)
 
 The `medications` module is responsible for all data regarding drugs. It stores
-this data by maintaining a drug table in the Annotation Server's database. This
-table is initialized by loading and saving all relevant data from the
-\gls{drugbank} XML file. This data consists of drug names, descriptions,
-synonyms and \glspl{rxcui}, which are unique identifiers given by the National
-Library of Medicine's standardized drug nomenclature RxNorm [@liu_rxnorm_2005]
-Once the drug table is initialized, the Annotation Server provides GET endpoints
-to retrieve information for one or multiple drugs along with the option of
-applying filters.
+drug data by maintaining a table in the Annotation Server's database. This table
+is initialized by loading and saving all relevant data from the \gls{drugbank}
+XML file. The saved data consists of drug names, descriptions, synonyms and
+\glspl{rxcui}, which are unique identifiers given by the National Library of
+Medicine's standardized drug nomenclature RxNorm [@liu_rxnorm_2005].  Once the
+drug table is initialized, the Annotation Server provides GET endpoints to
+retrieve information for one or multiple drugs along with the option of applying
+filters.
 
 The `phenotypes` module maintains all the phenotypes \gls{cpic} offers
 guidelines for in its phenotype table. These phenotypes are defined by a gene
 symbol such as *CYP2D6* and the effect variants with this phenotype have on the
 gene, i.e. a gene result such as *Normal metabolizer*. Aside from these
-identifying properties, some additional data \gls{cpic} provides about
-phenotypes is also stored. The `phenotypes` module exposes no dedicated
-endpoints as it is only used in relation to the `guidelines` module. The loading
-of phenotype data from \gls{cpic}'s \gls{api} is invoked by the `guidelines`
-module when it initializes its own data.
+identifying properties, some additional \gls{cpic} data about phenotypes is also
+stored. The `phenotypes` module exposes no dedicated endpoints as it is only
+used in relation to the `guidelines` module.
 
 The `guidelines` module keeps \glspl{guideline} in relation to phenotypes and
 drugs in its guidelines table. This data is initialized by loading all of
@@ -92,14 +90,14 @@ experts. These \glspl{annotation} consist of
   \gls{implication}'s consequences, and a \gls{warnl}, expressing the severity
   of the \gls{recommendation} as one of three tiers, for \glspl{guideline}.
 
-\noindent In the Annotation Server's current implementation, the \glsa{pgx}
-experts provide this data through a shared online Google Sheet. On request, the
+In the Annotation Server's current implementation, the \glsa{pgx} experts
+provide this data through a shared online Google Sheet. On request, the
 Annotation Server automatically downloads and processes this Google Sheet to
-annotate all data that matches the existing external data. Here, matching data
-is determined by the drug names, gene symbols and gene results the \glsa{pgx}
-experts manually write into the Google Sheet being equal to the analogous data
-from \gls{cpic} and \gls{drugbank} stored on the Annotation Server. Errors
-resulting from mismatches are, again, stored as `GuidelineError`s.
+annotate all data that matches the existing external data. Here, a data match is
+given when the drug names, gene symbols and gene results the \glsa{pgx} experts
+manually write into the Google Sheet are equal to the analogous data from
+\gls{cpic} and \gls{drugbank} stored on the Annotation Server. Errors resulting
+from mismatches are, again, stored as `GuidelineError`s.
 
 ## Data administration process and shortcomings \label{as-eval}
 
@@ -107,14 +105,13 @@ The implementation of the Annotation Server relies on two parties to
 initialize its data and keep it up-to-date:
 
 - **A curating party** with sufficient \gls{pgx} expertise to curate
-  patient-oriented \glspl{annotation} from data they manually research from
-  sources such as \gls{cpic}. This party manually writes their
-  \glspl{annotation} into the Google Sheet, initially without any feedback
-  regarding if and how well they match the Annotation Server's existing data
-  from external sources.
+  patient-oriented \glspl{annotation} from data they research from sources such
+  as \gls{cpic}. This party manually writes their \glspl{annotation} into the
+  Google Sheet, initially without any feedback regarding if and how well they
+  match the Annotation Server's existing data from external sources.
 - **A maintaining party** with sufficient technical knowledge to invoke the
   requests to fetch data from external sources and the Google
-  Sheet. This party also oversees the before mentioned `GuidelineErrors` and
+  Sheet. This party also oversees the before mentioned `GuidelineError`s and
   acts accordingly, which usually results in notifying the curating party to
   make necessary adjustments.
 
