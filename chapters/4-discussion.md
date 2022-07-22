@@ -37,7 +37,7 @@ extensibility for future use and development.
 
 Given the above points, the Annotation Interface meets its aim of improving the
 process of researching, curating and administering patient-oriented,
-multi-language \glsa{pgx} information for experts, while solving the discussed
+multilingual \glsa{pgx} information for experts, while solving the discussed
 problems of the Annotation Server. These statements are supported by \glsa{pgx}
 expert Dr. Aniwaa Owusu Obeng, who emphasized them in the conducted testing.
 

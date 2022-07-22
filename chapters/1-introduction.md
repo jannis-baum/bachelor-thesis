@@ -51,7 +51,7 @@ shared effort, some problems have remained:
 component to the PharMe system in this thesis: the Annotation Interface. The
 Annotation Interface is a web application directed at \glsa{pgx} experts and
 aims to facilitate the process of researching, curating and administering
-patient-oriented, multi-language \glsa{pgx} information.
+patient-oriented, multilingual \glsa{pgx} information.
 
 In this thesis, I give an overview of the Annotation Server's implementation.
 After explaining the before mentioned problems in more detail, I propose,

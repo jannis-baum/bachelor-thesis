@@ -86,7 +86,7 @@ Both the `medications` and `guidelines` modules expose PATCH endpoints to
 annotate the additional patient-oriented data provided by the \glsa{pgx}
 experts. These \glspl{annotation} consist of
 
-- a drug class and an \gls{indication} for drugs and
+- a drug class and an \gls{indication} for drugs,
 - an \gls{implication}, explaining the effect a phenotype has on an individual's
   response to a drug, a \gls{recommendation}, giving a suggestion based on the
   \gls{implication}'s consequences, and a \gls{warnl}, expressing the severity
