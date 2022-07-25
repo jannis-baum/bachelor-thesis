@@ -12,7 +12,8 @@ PANDOC_CMD=pandoc --defaults=template/options.yaml
 $(OUT).pdf: $(TEXT) $(IMGS) $(PDF_IMGS)
 	@echo 'creating pdf'
 	@$(PANDOC_CMD) --output=$(OUT).pdf $(MD_FILES)
-	@qlmanage -p $(OUT).pdf &>/dev/null
+	# Quicklook preview on macOS
+	# @qlmanage -p $(OUT).pdf &>/dev/null
 
 $(OUT).tex: $(TEXT)
 	@$(PANDOC_CMD) --output=$(OUT).tex $(MD_FILES)
